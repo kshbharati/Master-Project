@@ -7,23 +7,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8dcbaa-2539-47fc-b86e-d43c3386119f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API/ErrorClass.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API/ReturnData.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../API/User.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/DB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../API/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_XL_API_29]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1r46PQE8yenwU0KvvwhYAKife56" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,7 +42,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Build Variants" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="PsdUISettings">
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -44,7 +59,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Pre_Uni_Application.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -115,10 +130,25 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="199" key="SettingsEditor" timestamp="1618223794287">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="95" y="-1103" key="#PSD" timestamp="1618699318784">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="461" y="199" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1618223794287" />
+    <state x="95" y="-1103" key="#PSD/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1618699318784" />
+    <state x="-354" y="-1317" width="1862" height="936" key="AVDManager" timestamp="1618699918461">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state x="-354" y="-1317" width="1862" height="936" key="AVDManager/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1618699918461" />
+    <state x="45" y="-1229" key="SettingsEditor" timestamp="1618700495628">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state x="-2068" y="211" key="SettingsEditor/0.30.1920.1050/-2560.30.2048.1122@-2560.30.2048.1122" timestamp="1618634218794" />
+    <state x="45" y="-1229" key="SettingsEditor/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1618700495628" />
+    <state x="461" y="199" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1618407552503" />
   </component>
 </project>
