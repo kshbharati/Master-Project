@@ -2,7 +2,6 @@ package com.federation.masters.preuni.login.data;
 
 import android.util.Log;
 
-import com.federation.masters.preuni.login.data.model.LoggedInUser;
 import com.federation.masters.preuni.models.User;
 import com.federation.masters.preuni.models.UserDetail;
 
@@ -13,24 +12,21 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    UserDetail userDetail=new UserDetail(1,"Kshitiz","Bharati","0401375989",1,1);
-    User user=new User(1,"henge",userDetail);
-
+    UserDetail userDetail = new UserDetail(1, "Kshitiz", "Bharati", "0401375989", 1, 1);
+    User user = new User(1, "henge", userDetail);
 
 
     public Result<User> login(String email, String password) {
-        if(email.equals(user.getEmail()) && password.equals("testpassword"))
-        {
-            Log.d("HELLO","Response: ");
+        if (email.equals(user.getEmail()) && password.equals("testpassword")) {
+            Log.d("HELLO", "Response: ");
             try {
 
-                User loggedUser =user;
+                User loggedUser = user;
                 return new Result.Success<>(loggedUser);
             } catch (Exception e) {
                 return new Result.Error(new IOException("Error logging in", e));
             }
-        }else
-        {
+        } else {
             return new Result.Failed<>("Invalid Email/Password");
         }
 

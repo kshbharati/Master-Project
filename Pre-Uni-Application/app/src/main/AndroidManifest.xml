@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.federation.masters.preuni"
     android:targetSandboxVersion="1"
-    tools:targetApi="o" >
+    tools:targetApi="o">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,15 +16,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PreUniApplication"
         android:usesCleartextTraffic="true"
-        tools:targetApi="29" >
+        tools:targetApi="29">
+
+        <activity
+            android:name=".staffHome.StaffHomeActivity"
+            android:label="StaffHomeActivity"
+            android:theme="@style/Theme.PreUniApplication.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name=".parentHome.ParentHomeActivity"
+            android:label="@string/title_activity_parent_home"
+            android:theme="@style/Theme.PreUniApplication.NoActionBar" />
         <activity
             android:name=".login.ui.login.LoginActivity"
-            android:label="Login" >
-        </activity>
+            android:label="Login" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.PreUniApplication.NoActionBar" >
+            android:theme="@style/Theme.PreUniApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

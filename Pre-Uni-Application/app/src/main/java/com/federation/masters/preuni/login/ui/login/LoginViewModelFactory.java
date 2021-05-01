@@ -1,8 +1,8 @@
 package com.federation.masters.preuni.login.ui.login;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.annotation.NonNull;
 
 import com.federation.masters.preuni.login.data.LoginDataSource;
 import com.federation.masters.preuni.login.data.LoginRepository;

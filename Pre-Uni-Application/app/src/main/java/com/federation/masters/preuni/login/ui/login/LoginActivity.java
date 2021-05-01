@@ -1,17 +1,8 @@
 package com.federation.masters.preuni.login.ui.login;
 
 import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -24,15 +15,24 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.federation.masters.preuni.R;
 import com.federation.masters.preuni.models.User;
+import com.federation.masters.preuni.parentHome.ParentHomeActivity;
+import com.federation.masters.preuni.staffHome.StaffHomeActivity;
 import com.google.gson.Gson;
 
 public class LoginActivity extends AppCompatActivity {
 
     private static final String EXTRA_MESSAGE = "com.federation.masters.preuni.MESSAGE";
-    private LoginViewModel loginViewModel;
     User resultUser;
+    private LoginViewModel loginViewModel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-
 
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -118,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                resultUser=loginViewModel.login(usernameEditText.getText().toString(),
+                resultUser = loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
         });
@@ -126,12 +125,12 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
-        //Intent intent=new Intent(this, .class);
-        Gson gs=new Gson();
-        String hello=(gs.toJson(model)).toString();
-        Log.d("MESSAGE",hello);
-        //intent.putExtra(EXTRA_MESSAGE, hello);
-        //startActivity(intent);
+        Intent intent = new Intent(this, StaffHomeActivity.class);
+        Gson gs = new Gson();
+        String hello = (gs.toJson(model)).toString();
+        Log.d("MESSAGE", hello);
+        intent.putExtra(EXTRA_MESSAGE, hello);
+        startActivity(intent);
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
 
     }

@@ -1,15 +1,14 @@
 package com.federation.masters.preuni.login.ui.login;
 
+import android.util.Patterns;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.util.Patterns;
-
+import com.federation.masters.preuni.R;
 import com.federation.masters.preuni.login.data.LoginRepository;
 import com.federation.masters.preuni.login.data.Result;
-import com.federation.masters.preuni.login.data.model.LoggedInUser;
-import com.federation.masters.preuni.R;
 import com.federation.masters.preuni.models.User;
 
 public class LoginViewModel extends ViewModel {

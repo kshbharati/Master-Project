@@ -1,18 +1,17 @@
 package com.federation.masters.preuni.models;
 
-import com.federation.masters.preuni.models.UserDetail;
 public class User {
     private int id;
     private String email;
     private UserDetail userdetail;
 
-    public User()
-    {}
-    public User(int userid, String userEmail, UserDetail detail)
-    {
-        this.id=userid;
-        this.email=userEmail;
-        this.userdetail=detail;
+    public User() {
+    }
+
+    public User(int userid, String userEmail, UserDetail detail) {
+        this.id = userid;
+        this.email = userEmail;
+        this.userdetail = detail;
     }
 
     public int getId() {

@@ -32,6 +32,13 @@ android {
     dependenciesInfo {
         includeInApk true
     }
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src\\main\\res', 'src\\main\\res\\layouts\\parentHome', 'src\\main\\res\\layouts\\staffHome', 'src\\main\\res\\parentViews', 'src\\main\\res\\staffViews'
+            }
+        }
+    }
 }
 
 dependencies {

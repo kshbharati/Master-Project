@@ -1,6 +1,5 @@
 package com.federation.masters.preuni.login.data;
 
-import com.federation.masters.preuni.login.data.model.LoggedInUser;
 import com.federation.masters.preuni.models.User;
 
 /**

@@ -8,14 +8,13 @@ public class UserDetail {
     private int categoryId;
     private int userId;
 
-    public UserDetail(int id,String fName, String lName, String pNumber, int catID, int uID)
-    {
-        this.id=id;
-        this.firstName=fName;
-        this.lastName=lName;
-        this.phoneNumber=pNumber;
-        this.categoryId=catID;
-        this.userId=uID;
+    public UserDetail(int id, String fName, String lName, String pNumber, int catID, int uID) {
+        this.id = id;
+        this.firstName = fName;
+        this.lastName = lName;
+        this.phoneNumber = pNumber;
+        this.categoryId = catID;
+        this.userId = uID;
     }
 
     public int getId() {
@@ -66,8 +65,7 @@ public class UserDetail {
         this.userId = userId;
     }
 
-    public String getFullName()
-    {
-        return this.firstName+" "+this.lastName;
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
     }
 }
