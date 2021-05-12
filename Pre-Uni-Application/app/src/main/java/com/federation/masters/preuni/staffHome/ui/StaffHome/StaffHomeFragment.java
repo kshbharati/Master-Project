@@ -14,8 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.federation.masters.preuni.R;
 import com.federation.masters.preuni.models.Course;
 import com.federation.masters.preuni.models.Student;
-import com.federation.masters.preuni.parentHome.ui.CourseAdapter;
-import com.federation.masters.preuni.parentHome.ui.StudentAdapter;
+import com.federation.masters.preuni.staffHome.CourseAdapter;
 import com.federation.masters.preuni.parentHome.ui.home.HomeViewModel;
 
 import java.util.ArrayList;

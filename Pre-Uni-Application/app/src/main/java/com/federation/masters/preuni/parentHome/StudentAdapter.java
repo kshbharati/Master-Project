@@ -1,4 +1,4 @@
-package com.federation.masters.preuni.parentHome.ui;
+package com.federation.masters.preuni.parentHome;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
-        Intent intent = new Intent(this, StaffHomeActivity.class);
+        Intent intent = new Intent(this, ParentHomeActivity.class);
         Gson gs = new Gson();
         String hello = (gs.toJson(model)).toString();
         Log.d("MESSAGE", hello);

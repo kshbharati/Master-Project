@@ -1,14 +1,19 @@
 package com.federation.masters.preuni.parentHome;
 
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -23,11 +28,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-public class ParentHomeActivity extends AppCompatActivity {
+public class ParentHomeActivity extends AppCompatActivity{
     UserDetail userDetail = new UserDetail(1, "Kshitiz", "Bharati", "0401375989", 1, 1);
     User user = new User(1, "henge", userDetail);
     Student st1 = new Student();
     private AppBarConfiguration mAppBarConfiguration;
+    PopupWindow popup;
+    Button closeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +48,36 @@ public class ParentHomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                // inflate the layout of the popup window
+                LayoutInflater inflater = (LayoutInflater)
+                        getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popupView=inflater.inflate(R.layout.parent_send_email_popup, null);
+
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable=true;
+
+                popup=new PopupWindow(popupView,width,height,focusable);
+
+                popup.showAtLocation(view, Gravity.CENTER,0,0);
+                //closeBtn=findViewById(R.id.email_close_button);
+                /*if(closeBtn.isClickable())
+                {
+                    closeBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            popup.dismiss();
+                        }
+                    });
+                }*/
+
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                 //       .setAction("Action", null).show();
             }
         });
+
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -59,7 +92,10 @@ public class ParentHomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
     }
+
+
 /*
+
     private static class StudentListOnClickListener implements View.OnClickListener {
 
         private final Context context;

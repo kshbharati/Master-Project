@@ -29,29 +29,39 @@ def get_users(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.User).offset(skip).limit(limit).all()
 
 
-def get_user_details(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.UserDetail).offset(skip).limit(limit).all()
+def get_user_details(db: Session, userid: int):
+    model=db.query(models.UserDetail).filter(models.UserDetail.userId == userid).first()
 
+    return model;
 
 def get_category(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.Category).offset(skip).limit(limit).all()
 
+
+def get_courselist(db: Session, skip: int = 0, limit: int = 10):
+    return db.query(models.Course).offset(skip).limit(limit).all()
+
+
+def get_assigned_courses_for_student(db: Session, studentId: int, skip: int = 0, limit: int = 10):
+    model=db.query(models.AssignedCourse).filter(models.AssignedCourse.student == studentId).all()
+    #print(model)
+    return model
 
 """Insert Functions"""
 
 
 def create_user(db: Session, user: schemas.UserCreate):
     print("Create User")
-    fake_hashed_password = hashstr(user.password)
-    db_user = models.User(email=user.email, password=fake_hashed_password)
+    hashed_password = hashstr(user.password)
+    db_user = models.User(email=user.email, category=user.category, password=hashed_password)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
     return db_user
 
 
-def create_user_detail(db: Session, userdetail: schemas.UserDetailCreate, userid: int, category_id: int):
-    db_item = models.UserDetail(**userdetail.dict(), userid=userid, categoryid=category_id)
+def create_user_detail(db: Session, userdetail: schemas.UserDetailCreate, userid: int):
+    db_item = models.UserDetail(**userdetail.dict(), userId=userid)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
@@ -60,6 +70,32 @@ def create_user_detail(db: Session, userdetail: schemas.UserDetailCreate, userid
 
 def create_category(db: Session, category: schemas.CategoryCreate, ):
     db_item = models.Category(**category.dict())
+    db.add(db_item)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
+
+
+def create_course(db: Session, course: schemas.Course):
+    db_item = models.Course(**course.dict())
+    db.add(db_item)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
+
+
+def create_student(db: Session, student: schemas.Student):
+    db_item = models.Student(**student.dict())
+
+    db.add(db_item)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
+
+
+def assign_course(db: Session, asscourse: schemas.AssignedCourse):
+    db_item = models.AssignedCourse(**asscourse.dict())
+    print(db_item)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)

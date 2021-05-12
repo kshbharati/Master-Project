@@ -13,6 +13,6 @@
     <fragment
         android:id="@+id/nav_staff_attendance"
         android:name="com.federation.masters.preuni.staffHome.ui.StaffAttendance.StaffAttendanceFragment"
-        android:label="@string/menu_home"
+        android:label="Attendance"
         tools:layout="@layout/fragment_staff_attendance" />
 </navigation>

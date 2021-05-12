@@ -1,11 +1,50 @@
+import datetime
 from typing import List, Optional
 from pydantic import BaseModel
+
+# User Schema
+from sqlalchemy import DateTime
+
+
+class UserBase(BaseModel):
+    email: str
+    category: int
+
+class UserCreate(UserBase):
+    password: str
+
+class User(UserBase):
+    id: int
+    userCreatedDate: datetime.datetime
+
+    # sessionid: str
+
+    class Config:
+        orm_mode = True
+
+
+# UserDetail Schema
+class UserDetailBase(BaseModel):
+    userName: str
+    phoneNumber: Optional[str] = None
+
+
+class UserDetailCreate(UserDetailBase):
+    pass
+
+
+class UserDetail(UserDetailBase):
+    id: int
+    userId: int
+
+    class Config:
+        orm_mode = True
 
 
 # Category Schema
 class CategoryBase(BaseModel):
-    categoryname: str
-    categorydetail: Optional[str] = None
+    categoryName: str
+    categoryDetail: Optional[str] = None
 
 
 class CategoryCreate(CategoryBase):
@@ -19,39 +58,77 @@ class Category(CategoryBase):
         orm_mode = True
 
 
-# User Schema
-class UserBase(BaseModel):
-    email: str
+# Student Schemas
+class StudentBase(BaseModel):
+    studentName: str
+    studentEnrolledDate: datetime.datetime
+    parent: int
 
 
-class UserCreate(UserBase):
-    password: str
+class StudentCreate(StudentBase):
+    pass
 
 
-class User(UserBase):
+class Student(StudentBase):
     id: int
-
-    # sessionid: str
 
     class Config:
         orm_mode = True
 
 
-# UserDetail Schema
-class UserDetailBase(BaseModel):
-    firstname: str
-    lastname: str
-    phonenumber: Optional[str] = None
+# Course Schemas
+class CourseBase(BaseModel):
+    courseTitle: str
+    courseDesc: str
 
 
-class UserDetailCreate(UserDetailBase):
+class CourseCreate(CourseBase):
     pass
 
 
-class UserDetail(UserDetailBase):
+class Course(CourseBase):
     id: int
-    categoryid: int
-    userid: int
+
+    class Config:
+        orm_mode = True
+
+
+# AssignedCourse Schemas
+class AssignedCourseBase(BaseModel):
+    student: int
+    course: int
+    courseStartDate: datetime.date
+    courseEndDate: datetime.date
+
+
+class AssignedCourseCreate(AssignedCourseBase):
+    pass
+
+
+class AssignedCourse(AssignedCourseBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+# AssignmentSchemas
+class AssignmentBase(BaseModel):
+    assignmentTitle: str
+    assignmentDesc: str
+    assignmentAddedDate: datetime.datetime
+    assignmentAddedBy: str
+    courseId: str
+
+
+class AssignmentCreate(BaseModel):
+    pass
+
+
+class Assignment(BaseModel):
+    id: int
+    assignmentStartDate: datetime.datetime
+    assignmentEndDate: datetime.datetime
 
     class Config:
         orm_mode = True

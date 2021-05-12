@@ -12,77 +12,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8dcbaa-2539-47fc-b86e-d43c3386119f" name="Default Changelist" comment="jjjj">
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Assignment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ParentHomeActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/StudentAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/grades/GradesFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/grades/GradesViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/home/HomeFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/home/HomeViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/CourseAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/StaffHomeActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffAttendance/StaffAttendanceFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffHome/StaffHomeFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffHome/StaffHomeVIewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_parent_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_staff_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_staff_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_staff_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_grades.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_staff_attendance.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_staff_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_staff_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/parent_home_student_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/staff_home_course_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_staff_nav.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/staff_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/parent_navigation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/staff_navigation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/style.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/email_popup_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/parent_send_email_popup.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/federation/masters/preuni/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/federation/masters/preuni/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/HomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/api/ApiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/api/ApiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/api/singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/api/singleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/data/LoginDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/data/LoginDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/data/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/data/LoginRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/data/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/data/Result.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginViewModelFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/UserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/UserDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/parent_student_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/parent_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/parent_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/url.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/url.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/federation/masters/preuni/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/federation/masters/preuni/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ParentHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ParentHomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/StudentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/StudentAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/home/HomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffHome/StaffHomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffHome/StaffHomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/parent_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/parent_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/staff_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/staff_navigation.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_XL_API_29]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -136,11 +82,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
+        <option value="valueResourceFile" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="navigationResourceFile" />
-        <option value="Class" />
-        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -415,10 +361,10 @@
     </state>
     <state x="158" y="-1094" key="AndroidCreateResourceDirectoryDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619304999984" />
     <state x="567" y="326" key="AndroidCreateResourceDirectoryDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1619866215350" />
-    <state x="567" y="326" key="AndroidCreateResourceFileDialog" timestamp="1619888763044">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="158" y="-1094" key="AndroidCreateResourceFileDialog" timestamp="1620608297150">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="158" y="-1094" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1618744525371" />
+    <state x="158" y="-1094" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1620608297150" />
     <state x="567" y="326" key="AndroidCreateResourceFileDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1619888763044" />
     <state x="807" y="332" key="AndroidCreateXmlResourceDialog" timestamp="1619888965979">
       <screen x="0" y="30" width="1920" height="1050" />
@@ -437,25 +383,25 @@
     </state>
     <state x="430" y="-1054" key="FileChooserDialogImpl/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619310980426" />
     <state x="822" y="363" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1619860409178" />
-    <state width="1876" height="440" key="GridCell.Tab.0.bottom" timestamp="1619889180078">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state width="2003" height="475" key="GridCell.Tab.0.bottom" timestamp="1619954793014">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state width="2003" height="213" key="GridCell.Tab.0.bottom/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619317300053" />
+    <state width="2003" height="475" key="GridCell.Tab.0.bottom/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619954793014" />
     <state width="1876" height="440" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1619889180078" />
-    <state width="1876" height="440" key="GridCell.Tab.0.center" timestamp="1619889180078">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state width="2003" height="475" key="GridCell.Tab.0.center" timestamp="1619954793014">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state width="2003" height="213" key="GridCell.Tab.0.center/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619317300052" />
+    <state width="2003" height="475" key="GridCell.Tab.0.center/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619954793014" />
     <state width="1876" height="440" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1619889180078" />
-    <state width="1876" height="440" key="GridCell.Tab.0.left" timestamp="1619889180078">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state width="2003" height="475" key="GridCell.Tab.0.left" timestamp="1619954793014">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state width="2003" height="213" key="GridCell.Tab.0.left/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619317300052" />
+    <state width="2003" height="475" key="GridCell.Tab.0.left/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619954793014" />
     <state width="1876" height="440" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1619889180078" />
-    <state width="1876" height="440" key="GridCell.Tab.0.right" timestamp="1619889180078">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state width="2003" height="475" key="GridCell.Tab.0.right" timestamp="1619954793014">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state width="2003" height="213" key="GridCell.Tab.0.right/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619317300052" />
+    <state width="2003" height="475" key="GridCell.Tab.0.right/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619954793014" />
     <state width="1876" height="440" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1619889180078" />
     <state width="2003" height="302" key="GridCell.Tab.1.bottom" timestamp="1618746016418">
       <screen x="-447" y="-1410" width="2048" height="1122" />
