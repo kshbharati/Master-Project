@@ -10,13 +10,14 @@ class UserBase(BaseModel):
     email: str
     category: int
 
+
 class UserCreate(UserBase):
     password: str
+
 
 class User(UserBase):
     id: int
     userCreatedDate: datetime.datetime
-
     # sessionid: str
 
     class Config:
@@ -93,19 +94,37 @@ class Course(CourseBase):
         orm_mode = True
 
 
+# TeachingClass Schemas
+class TeachingClassBase(BaseModel):
+    classTitle: str
+    courseTaught: int
+    staffTeaching: int
+
+
+class TeachingClassCreate(TeachingClassBase):
+    pass
+
+
+class TeachingClass(TeachingClassBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
 # AssignedCourse Schemas
-class AssignedCourseBase(BaseModel):
+class AssignedClassBase(BaseModel):
     student: int
-    course: int
+    classId: int
     courseStartDate: datetime.date
     courseEndDate: datetime.date
 
 
-class AssignedCourseCreate(AssignedCourseBase):
+class AssignedClassCreate(AssignedClassBase):
     pass
 
 
-class AssignedCourse(AssignedCourseBase):
+class AssignedClass(AssignedClassBase):
     id: int
 
     class Config:
@@ -132,3 +151,8 @@ class Assignment(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class userReturn(BaseModel):
+    result: str
+    data: User

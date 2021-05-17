@@ -17,9 +17,9 @@ public class HomeViewModel extends ViewModel {
             stuName.setValue(student.getStudentName());
 
             StringBuilder textFormat = new StringBuilder("Enrolled Course List: \n");
-            for (Course cse : student.getEnrolledCourseList()) {
-                textFormat.append(cse.getCourseName()).append("\n");
-            }
+            /*for (Course cse : student.getEnrolledCourseList()) {
+                textFormat.append(cse.getCourseTitle()).append("\n");
+            }*/
 
             courseList = new MutableLiveData<String>();
             courseList.setValue(textFormat.toString());

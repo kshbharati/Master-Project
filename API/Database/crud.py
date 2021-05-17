@@ -4,17 +4,28 @@ from . import models, schemas
 import hashlib
 
 
-###Hash Function
+#####################
+####Hash Function####
+#####################
+
 def hashstr(text: str):
     return hashlib.md5(text.encode()).hexdigest()
 
 
+####################
+###Login Function###
+####################
 def verify_user(db: Session, email: str, password: str):
-    return db.query(models.User).filter(models.User.email == email & models.User.password)
+    model = db.query(models.User)
+    result = model.filter(models.User.email == email, models.User.password == hashstr(password)).first()
+    if result:
+        return result
+    return None
 
 
-"""Query Functions"""
-
+#####################
+###Query Functions###
+#####################
 
 def get_user(db: Session, user_id: int):
     return db.query(models.User).filter(models.User.id == user_id).first()
@@ -30,9 +41,11 @@ def get_users(db: Session, skip: int = 0, limit: int = 100):
 
 
 def get_user_details(db: Session, userid: int):
-    model=db.query(models.UserDetail).filter(models.UserDetail.userId == userid).first()
-
+    model = db.query(models.UserDetail).filter(models.UserDetail.userId == userid).first()
+    if model:
+        print(model.userId)
     return model;
+
 
 def get_category(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.Category).offset(skip).limit(limit).all()
@@ -42,11 +55,24 @@ def get_courselist(db: Session, skip: int = 0, limit: int = 10):
     return db.query(models.Course).offset(skip).limit(limit).all()
 
 
-def get_assigned_courses_for_student(db: Session, studentId: int, skip: int = 0, limit: int = 10):
-    model=db.query(models.AssignedCourse).filter(models.AssignedCourse.student == studentId).all()
-    #print(model)
+def get_assigned_class_for_student(db: Session, studentId: int, skip: int = 0, limit: int = 10):
+    model = db.query(models.AssignedClass).filter(models.AssignedClass.student == studentId).all()
+
+    # print(model)
     return model
 
+
+def get_assigned_class_for_staff(db: Session, staffId: int):
+    model = db.query(models.TeachingClass).filter(models.TeachingClass.staffTeaching == staffId).all()
+    return model
+
+def get_students_in_class(db:Session,classId:int):
+    list=[]
+    model=db.query(models.AssignedClass).filter(models.AssignedClass.classId==classId).all()
+    for result in model:
+        stu=db.query(models.Student).filter(models.Student.id==result.student).first()
+        list.append(stu)
+    return list
 """Insert Functions"""
 
 
@@ -93,10 +119,25 @@ def create_student(db: Session, student: schemas.Student):
     return db_item
 
 
-def assign_course(db: Session, asscourse: schemas.AssignedCourse):
-    db_item = models.AssignedCourse(**asscourse.dict())
+def assign_course(db: Session, asscourse: schemas.AssignedClass):
+    db_item = models.AssignedClass(**asscourse.dict())
     print(db_item)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
     return db_item
+
+
+def create_teaching_class(db: Session, teachingclass: schemas.TeachingClass):
+    db_item = models.TeachingClass(**teachingclass.dict())
+    db.add(db_item)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
+
+
+#############################
+####Verification Functions###
+#############################
+def check_if_category_exists(db: Session, categoryNm: str):
+    return db.query(models.Category).filter(models.Category.categoryName == categoryNm).first()

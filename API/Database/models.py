@@ -56,14 +56,13 @@ class Student(Base):
     parent = Column(Integer, ForeignKey("users.id"))
 
     #parent= relationship("User",back_populates="user.student")
-    #assignedCourse=relationship("AssignedCourse")
+    assignedClass=relationship("AssignedClass",back_populates="studentInClass")
     #assignedCourse = relationship("AssignedCourse", backref="students")
     #assignment = relationship("Assignment", backref="students")
 
     def __repr__(self):
         return "<User(name='%s %s')>" % (
             self, self.studentName)
-
 
 class Course(Base):
     __tablename__ = "course"
@@ -75,19 +74,26 @@ class Course(Base):
     #assignedCourse=relationship("AssignedCourse")
     #assignments = relationship("Assignment", backref="course")
 
-    def __repr__(self):
-        return "<User(name='%s %s')>" % (
-            self, self.courseTitle)
 
+class TeachingClass(Base):
+    __tablename__="teachingClass"
 
-class AssignedCourse(Base):
-    __tablename__ = "assignedCourse"
+    id=Column(Integer,primary_key=True, index=True)
+    classTitle=Column(String(100),index=True)
+    courseTaught=Column(Integer, ForeignKey("course.id"),nullable=True)
+    staffTeaching=Column(Integer, ForeignKey("users.id"))
+
+class AssignedClass(Base):
+    __tablename__ = "AssignedClass"
 
     id = Column(Integer, primary_key=True, index=True)
-    student = Column(Integer, ForeignKey("students.id"))
-    course = Column(Integer, ForeignKey("course.id"))
+    student = Column(Integer, ForeignKey("students.id"),nullable=True)
+    classId=Column(Integer,ForeignKey("teachingClass.id"))
     courseStartDate = Column(Date)
     courseEndDate = Column(Date)
+
+    studentInClass=relationship("Student",back_populates="assignedClass")
+    Class=relationship("TeachingClass",foreign_keys=[classId])
 
     #course = relationship("Course",backref="course.assignedCourse")
 

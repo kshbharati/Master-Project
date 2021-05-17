@@ -21,7 +21,7 @@ public class singleton {
 
         imageLoader = new ImageLoader(requestQueue,
                 new ImageLoader.ImageCache() {
-                    private final LruCache<String, Bitmap>
+                    final LruCache<String, Bitmap>
                             cache = new LruCache<String, Bitmap>(20);
 
                     @Override

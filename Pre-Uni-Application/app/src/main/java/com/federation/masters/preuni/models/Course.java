@@ -3,32 +3,34 @@ package com.federation.masters.preuni.models;
 import java.util.ArrayList;
 
 public class Course {
-    private int courseID;
-    private String courseName;
+    private int id;
+    private String courseTitle;
     private String courseDesc;
     private ArrayList<Assignment> assignmentList;
 
+    public Course() {}
+
     public Course(String name, String courseDesc) {
-        this.courseID = 1;
-        this.courseName = name;
+        this.id = 1;
+        this.courseTitle = name;
         this.courseDesc = courseDesc;
 
     }
 
-    public int getCourseID() {
-        return courseID;
+    public int getId() {
+        return id;
     }
 
-    public void setCourseID(int courseID) {
-        this.courseID = courseID;
+    public void setId(int courseID) {
+        this.id = courseID;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getCourseTitle() {
+        return courseTitle;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCourseTitle(String courseName) {
+        this.courseTitle = courseName;
     }
 
     public String getCourseDesc() {

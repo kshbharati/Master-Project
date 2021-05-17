@@ -1,9 +1,14 @@
 package com.federation.masters.preuni.models;
 
+import java.text.DateFormat;
+import java.util.ArrayList;
+
 public class User {
     private int id;
     private String email;
     private UserDetail userdetail;
+    private int category;
+    private String userCreatedDate;
 
     public User() {
     }
@@ -37,5 +42,21 @@ public class User {
 
     public void setUserdetail(UserDetail userdetail) {
         this.userdetail = userdetail;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public String getUserCreatedDate() {
+        return userCreatedDate;
+    }
+
+    public void setUserCreatedDate(String userCreatedDate) {
+        this.userCreatedDate = userCreatedDate;
     }
 }

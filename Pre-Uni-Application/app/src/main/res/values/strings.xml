@@ -27,4 +27,8 @@
     <string name="title_activity_staff_home">ParentHomeActivity</string>
     <string name="staff_nav_title_attendance">Attendance</string>
     <string name="card_detail_button_text">View Detail</string>
+    <string name="title_activity_course_detail">CourseDetail</string>
+
+    <string name="tab_text_1">Students</string>
+    <string name="tab_text_2">Assignments</string>
 </resources>

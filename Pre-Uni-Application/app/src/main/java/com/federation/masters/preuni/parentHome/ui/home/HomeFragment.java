@@ -28,8 +28,8 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         childList = new ArrayList<Student>();
-        Student st1 = new Student(1, "Test Student");
-        Student st2 = new Student(2, "Test Student 2");
+        Student st1 = new Student();
+        Student st2 = new Student();
 
         //homeViewModel =new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);

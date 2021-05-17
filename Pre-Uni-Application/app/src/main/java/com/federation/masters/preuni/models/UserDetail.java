@@ -2,18 +2,14 @@ package com.federation.masters.preuni.models;
 
 public class UserDetail {
     private int id;
-    private String firstName;
-    private String lastName;
+    private String userName;
     private String phoneNumber;
-    private int categoryId;
     private int userId;
 
-    public UserDetail(int id, String fName, String lName, String pNumber, int catID, int uID) {
+    public UserDetail(int id, String name, String pNumber, int uID) {
         this.id = id;
-        this.firstName = fName;
-        this.lastName = lName;
+        this.userName=name;
         this.phoneNumber = pNumber;
-        this.categoryId = catID;
         this.userId = uID;
     }
 
@@ -25,36 +21,12 @@ public class UserDetail {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
     }
 
     public int getUserId() {
@@ -65,7 +37,11 @@ public class UserDetail {
         this.userId = userId;
     }
 
-    public String getFullName() {
-        return this.firstName + " " + this.lastName;
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

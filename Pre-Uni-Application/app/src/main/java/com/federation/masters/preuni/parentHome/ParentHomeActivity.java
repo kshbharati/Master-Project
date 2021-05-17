@@ -1,6 +1,7 @@
 package com.federation.masters.preuni.parentHome;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,25 +22,39 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.federation.masters.preuni.R;
+import com.federation.masters.preuni.login.ui.login.LoginActivity;
 import com.federation.masters.preuni.models.Student;
 import com.federation.masters.preuni.models.User;
 import com.federation.masters.preuni.models.UserDetail;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import java.lang.reflect.Type;
 
 public class ParentHomeActivity extends AppCompatActivity{
-    UserDetail userDetail = new UserDetail(1, "Kshitiz", "Bharati", "0401375989", 1, 1);
+    UserDetail userDetail = new UserDetail(1, "Kshitiz","0401375989", 1);
     User user = new User(1, "henge", userDetail);
     Student st1 = new Student();
     private AppBarConfiguration mAppBarConfiguration;
     PopupWindow popup;
     Button closeBtn;
+    User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent_home);
+
+        String email= getIntent().getStringExtra(LoginActivity.EXTRA_MESSAGE);
+        Gson userValue=new Gson();
+        userValue.toJson(email);
+
+        currentUser= userValue.fromJson(String.valueOf(userValue), User.class);
+        Log.d("WORKING",currentUser.toString());
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -79,8 +94,8 @@ public class ParentHomeActivity extends AppCompatActivity{
 
 
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        DrawerLayout drawer = findViewById(R.id.parent_drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_staff_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -155,7 +170,7 @@ public class ParentHomeActivity extends AppCompatActivity{
 
         TextView childName = new TextView(getApplicationContext());
         childName.setLayoutParams(nlParams);
-        childName.setText(user.getUserdetail().getFullName());
+        childName.setText(user.getUserdetail().getUserName());
 
         Button detailView = new Button(getApplicationContext());
         detailView.setOnClickListener(

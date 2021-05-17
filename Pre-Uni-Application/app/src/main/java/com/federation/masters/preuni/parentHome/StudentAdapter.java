@@ -42,9 +42,9 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentL
         textName.setText(dataset.get(listPosition).getStudentName());
 
         StringBuilder textFormat = new StringBuilder("Enrolled Course List: \n");
-        for (Course cse : dataset.get(listPosition).getEnrolledCourseList()) {
-            textFormat.append(cse.getCourseName()).append("\n");
-        }
+        //for (Course cse : dataset.get(listPosition).getEnrolledCourseList()) {
+         //   textFormat.append(cse.getCourseTitle()).append("\n");
+        //}
 
         textCourseList.setText(textFormat);
     }
