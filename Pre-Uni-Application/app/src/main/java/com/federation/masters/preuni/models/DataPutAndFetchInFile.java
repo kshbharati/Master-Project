@@ -244,6 +244,7 @@ public class DataPutAndFetchInFile {
     }
 
 
+
     public StudentList getStudentInClass(int classId)
     {
         File studentFile=new File(GlobalApplication.getAppContext().getFilesDir().toString()+
@@ -335,6 +336,7 @@ public class DataPutAndFetchInFile {
         Log.d("LOGGER",childList.toString());
         return childList;
     }
+
+
+
 }
-
-

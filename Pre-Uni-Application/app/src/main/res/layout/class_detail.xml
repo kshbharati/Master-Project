@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/staff_class_view"
     tools:context=".courseDetail.CourseDetail">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.PreUniApplication.AppBarOverlay"
-
-        >
+        android:theme="@style/Theme.PreUniApplication.AppBarOverlay">
 
         <TextView
             android:id="@+id/courseIdHolder"
@@ -23,8 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/courseDetailToolbar"
-            app:layout_scrollFlags="scroll|enterAlways"
-            />
+            app:layout_scrollFlags="scroll|enterAlways">
+        </androidx.appcompat.widget.Toolbar>
 
         <TextView
             android:id="@+id/courseTitle"

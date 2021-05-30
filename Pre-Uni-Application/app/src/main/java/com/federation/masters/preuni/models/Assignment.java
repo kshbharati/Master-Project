@@ -1,25 +1,35 @@
 package com.federation.masters.preuni.models;
 
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Assignment {
-    private int assignmentID;
-    private String assignmentName;
+    private int id;
+    private String assignmentTitle;
     private String assignmentDesc;
-    private String assignmentDocFile;
+    private String assignmentSubmissionDate;
+    private int assignmentAddedBy;
+    private int courseId;
 
-    public int getAssignmentID() {
-        return assignmentID;
+    public int getId() {
+        return id;
     }
 
-    public void setAssignmentID(int assignmentID) {
-        this.assignmentID = assignmentID;
+    public void setId(int assignmentID) {
+        this.id = assignmentID;
     }
 
-    public String getAssignmentName() {
-        return assignmentName;
+    public String getAssignmentTitle() {
+        return assignmentTitle;
     }
 
-    public void setAssignmentName(String assignmentName) {
-        this.assignmentName = assignmentName;
+    public void setAssignmentTitle(String assignmentName) {
+        this.assignmentTitle = assignmentName;
     }
 
     public String getAssignmentDesc() {
@@ -30,11 +40,42 @@ public class Assignment {
         this.assignmentDesc = assignmentDesc;
     }
 
-    public String getAssignmentDocFile() {
-        return assignmentDocFile;
+    public String getAssignmentSubmissionDate() {
+        return assignmentSubmissionDate;
     }
 
-    public void setAssignmentDocFile(String assignmentDocFile) {
-        this.assignmentDocFile = assignmentDocFile;
+    public void setAssignmentSubmissionDate(String assignmentSubmissionDate) {
+        this.assignmentSubmissionDate = assignmentSubmissionDate;
+    }
+
+    public int getAssignmentAddedBy() {
+        return assignmentAddedBy;
+    }
+
+    public void setAssignmentAddedBy(int assignmentAddedBy) {
+        this.assignmentAddedBy = assignmentAddedBy;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public JSONObject getAssignmentPutObject()
+    {
+        JSONObject request=new JSONObject();
+        try {
+            request.put("assignmentTitle",getAssignmentTitle());
+            request.put("assignmentDesc",getAssignmentDesc());
+            request.put("assignmentSubmissionDate",getAssignmentSubmissionDate());
+            request.put("assignmentAddedBy",getAssignmentAddedBy());
+            request.put("courseId",getCourseId());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return request;
     }
 }

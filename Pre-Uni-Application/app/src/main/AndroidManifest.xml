@@ -18,14 +18,21 @@
         android:theme="@style/Theme.PreUniApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
+        <activity android:name=".assignmentSubmission.SubmissionAdd"></activity>
+        <activity
+            android:name=".assignmentSubmission.AssignmentSubmission"
+            android:theme="@style/Theme.PreUniApplication.NoActionBar" />
+        <activity
+            android:name=".assignmentadd.AssignmentAddActivity"
+            android:theme="@style/Theme.PreUniApplication.NoActionBar" />
         <activity
             android:name=".courseDetail.CourseDetail"
             android:label="@string/title_activity_course_detail"
-            android:theme="@style/Theme.PreUniApplication.NoActionBar"></activity>
+            android:theme="@style/Theme.PreUniApplication.NoActionBar" />
         <activity
             android:name=".staffHome.StaffHomeActivity"
             android:label="StaffHomeActivity"
-            android:theme="@style/Theme.PreUniApplication.NoActionBar"></activity>
+            android:theme="@style/Theme.PreUniApplication.NoActionBar" />
         <activity
             android:name=".parentHome.ParentHomeActivity"
             android:label="@string/title_activity_parent_home"

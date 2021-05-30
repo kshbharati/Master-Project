@@ -1,6 +1,6 @@
 import datetime
 
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text, Date, DateTime
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text, Date, DateTime,Numeric
 from sqlalchemy.orm import relationship
 
 from .database import Base
@@ -105,10 +105,27 @@ class Assignment(Base):
     assignmentDesc = Column(Text)
     assignmentAddedDate = Column(DateTime, default=datetime.datetime.utcnow)
     assignmentAddedBy = Column(Integer, ForeignKey("users.id"))
-    course = Column(Integer, ForeignKey("course.id"))
-    assignmentStartDate = Column(DateTime)
-    assignmentEndDate = Column(DateTime)
+    courseId = Column(Integer, ForeignKey("course.id"))
+    assignmentSubmissionDate = Column(DateTime)
 
    #course=relationship("Course")
     #assignmentAddedBy=relationship("User")
+
+class Submission(Base):
+    __tablename__="submissons"
+    id=Column(Integer,primary_key=True,index=True)
+    studentId=Column(Integer,ForeignKey("students.id"))
+    submittedDate=Column(DateTime,default=datetime.datetime.utcnow())
+    classId=Column(Integer,ForeignKey("teachingClass.id"))
+    assignmentId=Column(Integer,ForeignKey("assignments.id"))
+    submissionFile=Column(Text,nullable=True)
+    submissionType=Column(Integer)
+
+class Grading(Base):
+    __tablename__="submission_grades"
+    id=Column(Integer,primary_key=True,index=True)
+    submissionId=Column(Integer,ForeignKey("submissons.id"))
+    markGiven=Column(Numeric)
+    feedback=Column(Text)
+    gradedDate=Column(DateTime,default=datetime.datetime.utcnow())
 

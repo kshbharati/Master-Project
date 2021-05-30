@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -45,7 +46,7 @@ import org.json.JSONObject;
 public class StaffHomeActivity extends AppCompatActivity {
     StaffUser currentUser;
     Gson userJson=new Gson();
-
+    ProgressBar progressBar;
     private TextView navViewName;
     private TextView navViewEmail;
     private ImageView navViewImage;

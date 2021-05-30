@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
+<androidx.appcompat.widget.LinearLayoutCompat
     android:name="com.federation.masters.preuni.courseDetail.ui.main.AssignmentFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    app:layoutManager="LinearLayoutManager"
-    tools:context=".courseDetail.ui.main.AssignmentFragment"
-    tools:listitem="@layout/assignment_fragment_item" />
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:id="@+id/assignmentLoadingBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:background="@color/white"
+                    android:contentDescription="@string/assignmentAddButtonContentDescription"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="end"
+                    android:id="@+id/assignment_add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@android:drawable/btn_plus" />
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/assignmentList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                app:layoutManager="LinearLayoutManager"
+                tools:context=".courseDetail.ui.main.AssignmentFragment"
+                tools:listitem="@layout/assignment_fragment_item" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

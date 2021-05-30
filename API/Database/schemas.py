@@ -1,5 +1,6 @@
 import datetime
-from typing import List, Optional
+import decimal
+from typing import List, Optional, Any
 from pydantic import BaseModel
 
 # User Schema
@@ -18,6 +19,7 @@ class UserCreate(UserBase):
 class User(UserBase):
     id: int
     userCreatedDate: datetime.datetime
+
     # sessionid: str
 
     class Config:
@@ -135,19 +137,58 @@ class AssignedClass(AssignedClassBase):
 class AssignmentBase(BaseModel):
     assignmentTitle: str
     assignmentDesc: str
-    assignmentAddedDate: datetime.datetime
-    assignmentAddedBy: str
-    courseId: str
+    assignmentSubmissionDate: datetime.date
+    assignmentAddedBy: int
+    courseId: int
 
 
-class AssignmentCreate(BaseModel):
+class AssignmentCreate(AssignmentBase):
     pass
 
 
-class Assignment(BaseModel):
+class Assignment(AssignmentBase):
     id: int
-    assignmentStartDate: datetime.datetime
-    assignmentEndDate: datetime.datetime
+    assignmentAddedDate: datetime.date
+
+    class Config:
+        orm_mode = True
+
+
+# SubmissionSchemas
+class SubmissionBase(BaseModel):
+    studentId: int
+    classId: int
+    assignmentId: int
+    submissionFile: str
+    submissionType: int
+
+
+class SubmissionCreate(SubmissionBase):
+    pass
+
+
+class Submission(SubmissionBase):
+    id: int
+    submittedDate: datetime.date
+
+    class Config:
+        orm_mode = True
+
+
+# Grading Schemas
+class GradingBase(BaseModel):
+    submissionId: int
+    markGiven: decimal.Decimal
+    feedback: str
+
+
+class GradingCreate(GradingBase):
+    pass
+
+
+class Grading(GradingBase):
+    id: int
+    gradedDate: datetime.date
 
     class Config:
         orm_mode = True
@@ -156,3 +197,8 @@ class Assignment(BaseModel):
 class userReturn(BaseModel):
     result: str
     data: User
+
+
+class result(BaseModel):
+    result: str
+    message: str

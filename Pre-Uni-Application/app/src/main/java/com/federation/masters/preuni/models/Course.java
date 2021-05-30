@@ -14,6 +14,7 @@ public class Course {
         this.id = 1;
         this.courseTitle = name;
         this.courseDesc = courseDesc;
+        this.assignmentList= new ArrayList<Assignment>();
 
     }
 

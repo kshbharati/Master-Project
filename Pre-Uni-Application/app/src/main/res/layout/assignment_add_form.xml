@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="com.federation.masters.preuni.courseDetail.ui.main.AssignmentAddFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/assignmentAddAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:minHeight="50dp"
+        android:theme="@style/Theme.PreUniApplication"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/assignmentAddToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ProgressBar
+        android:id="@+id/assignment_add_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assignmentAddAppBarLayout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/assignmentAddAppBarLayout"
+            app:layout_constraintVertical_bias="0.077"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Assignment Title" />
+
+            <EditText
+                android:id="@+id/assignment_add_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Assignment Description" />
+
+            <EditText
+                android:id="@+id/assignment_add_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minHeight="200dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Assignment Submission Date" />
+
+            <EditText
+                android:id="@+id/assignment_add_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="Submission Date"
+                android:inputType="date" />
+
+            <Button
+                android:layout_marginBottom="200dp"
+                android:id="@+id/assignment_add_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Submit" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

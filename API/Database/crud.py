@@ -44,7 +44,7 @@ def get_user_details(db: Session, userid: int):
     model = db.query(models.UserDetail).filter(models.UserDetail.userId == userid).first()
     if model:
         print(model.userId)
-    return model;
+    return model
 
 
 def get_category(db: Session, skip: int = 0, limit: int = 10):
@@ -66,14 +66,76 @@ def get_assigned_class_for_staff(db: Session, staffId: int):
     model = db.query(models.TeachingClass).filter(models.TeachingClass.staffTeaching == staffId).all()
     return model
 
-def get_students_in_class(db:Session,classId:int):
-    list=[]
-    model=db.query(models.AssignedClass).filter(models.AssignedClass.classId==classId).all()
+
+def get_students_in_class(db: Session, classId: int):
+    list = []
+    model = db.query(models.AssignedClass).filter(models.AssignedClass.classId == classId).all()
     for result in model:
-        stu=db.query(models.Student).filter(models.Student.id==result.student).first()
+        stu = db.query(models.Student).filter(models.Student.id == result.student).first()
         list.append(stu)
     return list
+
+
+def get_assignment_for_course(db: Session, courseId: int):
+    list = []
+    model = db.query(models.Assignment).filter(models.Assignment.courseId == courseId).all()
+    return model
+
+
+def get_submission_for_assignment(db: Session, assignmentId: int):
+    model = db.query(models.Submission).filter(models.Submission.assignmentId == assignmentId).all()
+    return model
+
+
+def get_grade_for_submission(db: Session, submissionId: int):
+    model = db.query(models.Grading).filter(models.Grading.submissionId == submissionId).first()
+    return model
+
+
 """Insert Functions"""
+
+
+def add_submission(db: Session, submission: schemas.SubmissionCreate):
+    db_item = models.Submission(**submission.dict())
+    db.add(db_item)
+
+    failed = False
+    msg = {"Result": "Success"}
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = {"Result": "Failed"}
+        return msg
+
+    db.refresh(db_item)
+    return msg
+
+def add_grading(db: Session, grading: schemas.GradingCreate):
+    db_item = models.Grading(**grading.dict())
+    db.add(db_item)
+
+    failed = False
+    msg = {"Result": "Success"}
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = {"Result": "Failed"}
+        return msg
+
+    db.refresh(db_item)
+    return msg
 
 
 def create_user(db: Session, user: schemas.UserCreate):
@@ -134,6 +196,28 @@ def create_teaching_class(db: Session, teachingclass: schemas.TeachingClass):
     db.commit()
     db.refresh(db_item)
     return db_item
+
+
+def add_assignment_for_course(db: Session, assignment: schemas.AssignedClass):
+    db_item = models.Assignment(**assignment.dict())
+    db.add(db_item)
+
+    failed = False
+    msg = {"Result": "Success"}
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = {"Result": "Failed"}
+        return msg
+
+    db.refresh(db_item)
+    return msg
 
 
 #############################

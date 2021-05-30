@@ -1,5 +1,4 @@
 from typing import List
-import sys
 
 from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel
@@ -8,8 +7,6 @@ from sqlalchemy.orm import Session
 
 from Database import crud, models, schemas
 from Database.database import SessionLocal, engine
-
-# sys.setrecursionlimit(10000)
 from Database.schemas import User, userReturn
 
 models.Base.metadata.create_all(bind=engine)
@@ -94,13 +91,38 @@ def get_assigned_class_for_student(classId: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Course for Student not Found")
     return result
 
-@app.get("/get_assignment/{courseId}",response_model=List)
-def get_assignment_for_course(courseId:int, db:Session=Depends(get_db)):
-    return None
+
+@app.get("/get_assignment/{courseId}", response_model=List)
+def get_assignment_for_course(courseId: int, db: Session = Depends(get_db)):
+    result = crud.get_assignment_for_course(db, courseId=courseId)
+    if (result is None):
+        return {{"Result": "Failed"}}
+    return result
+
+
+@app.get("/submissions/{assignmentId}", response_model=List)
+def get_submission_for_assignment(assignmentId: int, db: Session = Depends(get_db)):
+    return crud.get_submission_for_assignment(db, assignmentId=assignmentId)
+
+
+@app.get("/grading/{assignmentId}", response_model=List)
+def get_gradings_for_submission(submissionId: int, db: Session = Depends(get_db)):
+    return crud.get_grade_for_submission(db, submissionId=submissionId)
+
 
 ##########################
 ####Creating Endpoints####
 ##########################
+@app.post("/submission/add")
+def add_submission(submission: schemas.SubmissionCreate, db: Session = Depends(get_db)):
+    return crud.add_submission(db, submission=submission)
+
+
+@app.post("/grading/add")
+def add_grade(grading: schemas.GradingCreate, db: Session = Depends(get_db)):
+    return crud.add_grading(db, grading=grading)
+
+
 @app.post("/users/createuserdetail/{userid}", response_model=schemas.UserDetail)
 def create_user_detail(userid: int, userdetail: schemas.UserDetailCreate, db: Session = Depends(get_db)):
     print(userid)
@@ -142,6 +164,12 @@ def assign_course(asscourse: schemas.AssignedClassCreate, db: Session = Depends(
 @app.post("/create/teaching_class", response_model=schemas.TeachingClass)
 def create_teaching_class(tchclass: schemas.TeachingClassCreate, db: Session = Depends(get_db)):
     return crud.create_teaching_class(db, teachingclass=tchclass)
+
+
+@app.post("/assignment/add")
+def add_assignment(assignment: schemas.AssignmentCreate, db: Session = Depends(get_db)):
+    print(assignment)
+    return crud.add_assignment_for_course(db, assignment=assignment)
 
 
 @app.post("/verify_user/{username}/{password}", response_model=schemas.User)
