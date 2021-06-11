@@ -10,7 +10,11 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_grades"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_home_24"
             android:title="@string/grades" />
+        <item
+            android:id="@+id/nav_parent_messages"
+            android:icon="@drawable/ic_baseline_message_24"
+            android:title="Messages" />
     </group>
 </menu>

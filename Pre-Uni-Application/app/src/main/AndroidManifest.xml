@@ -6,6 +6,8 @@
     tools:targetApi="o">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".GlobalApplication"
@@ -18,7 +20,9 @@
         android:theme="@style/Theme.PreUniApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
-        <activity android:name=".assignmentSubmission.SubmissionAdd"></activity>
+        <activity android:name=".assignmentSubmission.SubmissionAdd"
+            android:theme="@style/Theme.PreUniApplication.NoActionBar"
+            />
         <activity
             android:name=".assignmentSubmission.AssignmentSubmission"
             android:theme="@style/Theme.PreUniApplication.NoActionBar" />

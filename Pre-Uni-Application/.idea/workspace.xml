@@ -6,7 +6,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="COURSE" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -15,36 +14,93 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b8dcbaa-2539-47fc-b86e-d43c3386119f" name="Default Changelist" comment="jjjj">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentListSpinnerAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentSubmission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/SubmissionAdd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/SubmissionRecyclerViewAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentadd/AssignmentAddActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/AssignmentList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Submission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_add_form.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission_recycler_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission_spinner_dropdown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission_spinner_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/submission_add_form.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/Logo_puc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/Why-Pre-Uni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/course1_image.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/course_2_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/course_3_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/course_4_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/course_5_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Image/shadow_14294.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/Utility/DecimalDigitsInputFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/MessageFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/MessageRecyclerViewAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/api/VolleyMultipartRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/StudentListSpinnerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/home/HomeContactFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/home/HomeCourseFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/home/HomePageFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/home/HomePagerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/ParentUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/placeholder/PlaceholderContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffMessages/StaffMessageFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldltr-mdpi/why_pre_uni.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/logo_puc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/course1_image.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/course_2_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/course_3_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/course_4_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/course_5_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shadow.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shadowborder.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/home_contact.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/home_course_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/home_title_fragment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/message_detail_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/message_fragment_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/message_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/message_reply_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable-hdpi/shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable-mdpi/shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable-xhdpi/shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable-xxhdpi/shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable-xxxhdpi/shadow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable/ic_baseline_delete_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable/ic_baseline_home_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable/ic_baseline_message_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable/ic_baseline_notes_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable/ic_baseline_phone_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable/ic_baseline_read_more_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/staffViews/drawable/ic_baseline_reply_24.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../API/Database/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/Database/crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../API/Database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/Database/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../API/Database/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/Database/schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../API/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../API/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/HomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentListSpinnerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentListSpinnerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentSubmission.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentSubmission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/SubmissionAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/SubmissionAdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentadd/AssignmentAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentadd/AssignmentAddActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/courseDetail/CourseDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/courseDetail/CourseDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/courseDetail/ui/main/AssignmentFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/courseDetail/ui/main/AssignmentFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/courseDetail/ui/main/AssignmentRecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/courseDetail/ui/main/AssignmentRecyclerViewAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/courseDetail/ui/main/placeholder/PlaceholderContent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/login/ui/login/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/CourseList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/CourseList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/DataPutAndFetchInFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/DataPutAndFetchInFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Submission.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/models/Submission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ParentHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ParentHomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/StudentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/StudentAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ui/home/HomeFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/StaffHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/StaffHomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/assignment_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/assignment_fragment_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_fragment_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/class_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/class_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffHome/StaffHomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/staffHome/ui/StaffHome/StaffHomeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission_spinner_dropdown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission_spinner_dropdown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission_spinner_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/assignment_submission_spinner_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/parent_send_email_popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/email_send_form.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/submission_add_form.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/submission_add_form.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/tabbed_fragment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_staff_nav.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_staff_nav.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/parent_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/parent_navigation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/staff_navigation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/staff_navigation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,8 +168,8 @@
         <option value="valueResourceFile" />
         <option value="navigationResourceFile" />
         <option value="resourceFile" />
-        <option value="Class" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -129,23 +185,29 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\Kshitiz Bharati\.android\avd\Pixel_XL_API_29.avd" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-05-16T00:05:02.916463300Z" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="DRAWABLE" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="android-custom-viewC:/Users/Kshitiz Bharati/.gradle/caches/modules-2/files-2.1/androidx.appcompat/appcompat/1.2.0/13e8ff89631c2e101eb6bddd12c2fb4bbd74b15d/appcompat-1.2.0-sources.jar!/androidx/appcompat/widget/AppCompatSpinner.java_SELECTED" value="AppCompatSpinner" />
+    <property name="android-custom-viewC:/Users/Kshitiz Bharati/AppData/Local/Android/Sdk/sources/android-29/android/view/View.java_SELECTED" value="View" />
+    <property name="android-custom-viewC:/Users/Kshitiz Bharati/AppData/Local/Android/Sdk/sources/android-30/android/view/ViewGroup.java_SELECTED" value="ViewGroup" />
+    <property name="android-custom-viewC:/Users/Kshitiz Bharati/AppData/Local/Android/Sdk/sources/android-30/android/widget/AbsSpinner.java_SELECTED" value="AbsSpinner" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentSubmission.java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/assignmentSubmission/AssignmentSubmission.java" />
   </component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Properties" />
@@ -153,15 +215,9 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.-199305854">
+    <key name="android.template.908341352">
+      <recent name="com.federation.masters.preuni.assignmentadd" />
       <recent name="com.federation.masters.preuni.courseDetail" />
-      <recent name="com.federation.masters.preuni" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layouts\staffHome" />
-      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layouts\parentHome" />
-      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layout\ParentLayout" />
-      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layout_activity_home" />
     </key>
     <key name="android.template.1636576260">
       <recent name="com.federation.masters.preuni.staffHome" />
@@ -177,29 +233,41 @@
     <key name="android.template.1637748952">
       <recent name="com.federation.masters.preuni.courseDetail.ui.main" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.federation.masters.preuni.assignmentSubmission" />
-      <recent name="com.federation.masters.preuni" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\logo1" />
+      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layouts\staffHome" />
+      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layouts\parentHome" />
+      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layout\ParentLayout" />
+      <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layout_activity_home" />
     </key>
     <key name="android.template.347083705">
       <recent name="com.federation.masters.preuni.login" />
       <recent name="com.federation.masters.preuni" />
       <recent name="com.federation.masters.preuni.ui" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.federation.masters.preuni.assignmentSubmission" />
+      <recent name="com.federation.masters.preuni" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\layout" />
       <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\navigation" />
       <recent name="E:\Master-Project\Pre-Uni-Application\app\src\main\res\menu" />
     </key>
+    <key name="android.template.-352734460">
+      <recent name="com.federation.masters.preuni" />
+      <recent name="com.federation.masters.preuni.staffHome.ui.Messages" />
+      <recent name="com.federation.masters.preuni.staffHome.ui.StaffMessages" />
+    </key>
     <key name="android.template.780100452">
+      <recent name="com.federation.masters.preuni" />
+    </key>
+    <key name="android.template.-199305854">
+      <recent name="com.federation.masters.preuni.courseDetail" />
       <recent name="com.federation.masters.preuni" />
     </key>
     <key name="android.template.-1107334697">
       <recent name="com.federation.masters.preuni.parentHome" />
-    </key>
-    <key name="android.template.908341352">
-      <recent name="com.federation.masters.preuni.assignmentadd" />
-      <recent name="com.federation.masters.preuni.courseDetail" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -355,6 +423,7 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
@@ -382,10 +451,10 @@
       <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
     <state x="216" y="-1244" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622394134171" />
-    <state x="383" y="-1152" key="#com.intellij.ide.util.MemberChooser" timestamp="1622408733476">
+    <state x="383" y="-1152" key="#com.intellij.ide.util.MemberChooser" timestamp="1623423032643">
       <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="383" y="-1152" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622408733476" />
+    <state x="383" y="-1152" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623423032643" />
     <state x="778" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622407071930" />
     <state x="778" y="271" key="#com.intellij.ide.util.MemberChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1620801704756" />
     <state x="689" y="344" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1619587740867">
@@ -423,103 +492,147 @@
     </state>
     <state x="158" y="-1094" key="AndroidCreateResourceDirectoryDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619304999984" />
     <state x="567" y="326" key="AndroidCreateResourceDirectoryDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1619866215350" />
-    <state x="567" y="326" key="AndroidCreateResourceFileDialog" timestamp="1622405940040">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="158" y="-1094" key="AndroidCreateResourceFileDialog" timestamp="1623402096729">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="158" y="-1094" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622395933817" />
+    <state x="158" y="-1094" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623402096729" />
     <state x="567" y="326" key="AndroidCreateResourceFileDialog/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622405940040" />
     <state x="567" y="326" key="AndroidCreateResourceFileDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1622009688859" />
     <state x="807" y="332" key="AndroidCreateXmlResourceDialog" timestamp="1622007692613">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="807" y="332" key="AndroidCreateXmlResourceDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1622007692613" />
-    <state x="377" y="-1112" key="AndroidProcessChooserDialog" timestamp="1621143232634">
+    <state x="377" y="-1112" key="AndroidProcessChooserDialog" timestamp="1623164813563">
       <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="377" y="-1112" key="AndroidProcessChooserDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621143232634" />
+    <state x="377" y="-1112" key="AndroidProcessChooserDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623164813563" />
     <state x="556" y="37" key="CommitChangelistDialog2" timestamp="1619889180003">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="556" y="37" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1619889180003" />
-    <state x="430" y="-1054" key="FileChooserDialogImpl" timestamp="1621043350968">
+    <state x="-355" y="-1318" width="1864" height="938" key="DiffContextDialog" timestamp="1623153908113">
       <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="430" y="-1054" key="FileChooserDialogImpl/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621043350968" />
+    <state x="-355" y="-1318" width="1864" height="938" key="DiffContextDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623153908113" />
+    <state x="430" y="-1054" key="FileChooserDialogImpl" timestamp="1623387739855">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state x="430" y="-1054" key="FileChooserDialogImpl/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623387739855" />
     <state x="822" y="363" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1619860409178" />
-    <state width="1892" height="252" key="GridCell.Tab.0.bottom" timestamp="1622408790886">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state width="2005" height="252" key="GridCell.Tab.0.bottom/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622408540039" />
-    <state width="1877" height="252" key="GridCell.Tab.0.bottom/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622407557182" />
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="937" height="246" key="GridCell.Tab.0.bottom/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1623313318441" />
     <state width="1892" height="252" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1622408790886" />
-    <state width="1892" height="252" key="GridCell.Tab.0.center" timestamp="1622408790886">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state width="2005" height="302" key="GridCell.Tab.0.center" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state width="2005" height="252" key="GridCell.Tab.0.center/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622408540039" />
-    <state width="1877" height="252" key="GridCell.Tab.0.center/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622407557181" />
+    <state width="2005" height="302" key="GridCell.Tab.0.center/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="937" height="246" key="GridCell.Tab.0.center/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1623313318440" />
     <state width="1892" height="252" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1622408790886" />
-    <state width="1892" height="252" key="GridCell.Tab.0.left" timestamp="1622408790886">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state width="2005" height="302" key="GridCell.Tab.0.left" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state width="2005" height="252" key="GridCell.Tab.0.left/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622408540039" />
-    <state width="1877" height="252" key="GridCell.Tab.0.left/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622407557181" />
+    <state width="2005" height="302" key="GridCell.Tab.0.left/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="937" height="246" key="GridCell.Tab.0.left/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1623313318440" />
     <state width="1892" height="252" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1622408790886" />
-    <state width="1892" height="252" key="GridCell.Tab.0.right" timestamp="1622408790886">
+    <state width="2005" height="302" key="GridCell.Tab.0.right" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.0.right/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="937" height="246" key="GridCell.Tab.0.right/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1623313318441" />
+    <state width="1892" height="252" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1622408790886" />
+    <state width="2005" height="302" key="GridCell.Tab.1.bottom" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.1.bottom/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="2005" height="302" key="GridCell.Tab.1.center" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.1.center/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="2005" height="302" key="GridCell.Tab.1.left" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.1.left/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="2005" height="302" key="GridCell.Tab.1.right" timestamp="1623424519161">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.1.right/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424519161" />
+    <state width="2005" height="302" key="GridCell.Tab.2.bottom" timestamp="1623164683141">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.2.bottom/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623164683141" />
+    <state width="2005" height="302" key="GridCell.Tab.2.center" timestamp="1623164683141">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.2.center/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623164683141" />
+    <state width="2005" height="302" key="GridCell.Tab.2.left" timestamp="1623164683141">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.2.left/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623164683141" />
+    <state width="2005" height="302" key="GridCell.Tab.2.right" timestamp="1623164683141">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.2.right/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623164683141" />
+    <state x="540" y="297" key="IDE.errors.dialog" timestamp="1623312678919">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state width="2005" height="252" key="GridCell.Tab.0.right/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622408540039" />
-    <state width="1877" height="252" key="GridCell.Tab.0.right/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622407557182" />
-    <state width="1892" height="252" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1622408790886" />
-    <state width="1002" height="302" key="GridCell.Tab.1.bottom" timestamp="1621156037768">
-      <screen x="-447" y="-1410" width="2048" height="1122" />
-    </state>
-    <state width="1002" height="302" key="GridCell.Tab.1.bottom/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621156037768" />
-    <state width="1002" height="302" key="GridCell.Tab.1.center" timestamp="1621156037768">
-      <screen x="-447" y="-1410" width="2048" height="1122" />
-    </state>
-    <state width="1002" height="302" key="GridCell.Tab.1.center/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621156037768" />
-    <state width="1002" height="302" key="GridCell.Tab.1.left" timestamp="1621156037768">
-      <screen x="-447" y="-1410" width="2048" height="1122" />
-    </state>
-    <state width="1002" height="302" key="GridCell.Tab.1.left/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621156037768" />
-    <state width="1002" height="302" key="GridCell.Tab.1.right" timestamp="1621156037768">
-      <screen x="-447" y="-1410" width="2048" height="1122" />
-    </state>
-    <state width="1002" height="302" key="GridCell.Tab.1.right/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621156037768" />
+    <state x="540" y="297" key="IDE.errors.dialog/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1623312678919" />
     <state x="45" y="-1229" key="SettingsEditor" timestamp="1621043459002">
       <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
     <state x="-2068" y="211" key="SettingsEditor/0.30.1920.1050/-2560.30.2048.1122@-2560.30.2048.1122" timestamp="1618634218794" />
     <state x="45" y="-1229" key="SettingsEditor/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621043459002" />
     <state x="212" y="207" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1619590027519" />
-    <state x="381" y="-1087" key="chooseDestDirectoryDialog" timestamp="1622392464972">
+    <state x="381" y="-1087" key="chooseDestDirectoryDialog" timestamp="1623158545438">
       <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="381" y="-1087" key="chooseDestDirectoryDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622392464972" />
+    <state x="381" y="-1087" key="chooseDestDirectoryDialog/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623158545438" />
     <state x="776" y="332" key="chooseDestDirectoryDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1619882266733" />
     <state x="767" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619589251427">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="767" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.30.1920.1050@0.30.1920.1050" timestamp="1619589251427" />
-    <state x="1030" y="130" width="583" height="849" key="find.popup" timestamp="1622403990060">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="143" y="-1203" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1623164413240">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="652" y="-1303" width="622" height="908" key="find.popup/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621151626248" />
+    <state x="143" y="-1203" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623164413240" />
+    <state x="652" y="-1303" width="624" height="908" key="find.popup" timestamp="1623424485623">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
+    </state>
+    <state x="652" y="-1303" width="624" height="908" key="find.popup/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623424485623" />
     <state x="1030" y="130" width="583" height="849" key="find.popup/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622403990060" />
     <state x="1030" y="130" width="583" height="849" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1622007125613" />
     <state x="205" y="-1109" key="psd.add.library.dependency.panel.dimension" timestamp="1619306595293">
       <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
     <state x="205" y="-1109" key="psd.add.library.dependency.panel.dimension/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1619306595293" />
-    <state x="233" y="-444" width="672" height="677" key="run.anything.popup" timestamp="1622385365469">
+    <state x="233" y="-444" width="672" height="677" key="run.anything.popup" timestamp="1623387343767">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="233" y="-444" width="672" height="677" key="run.anything.popup/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1622385365469" />
-    <state x="684" y="251" width="672" height="635" key="search.everywhere.popup" timestamp="1622400867059">
-      <screen x="0" y="30" width="1920" height="1050" />
+    <state x="233" y="-444" width="672" height="677" key="run.anything.popup/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623387343767" />
+    <state x="283" y="-1174" width="672" height="678" key="search.everywhere.popup" timestamp="1623411272870">
+      <screen x="-447" y="-1410" width="2048" height="1122" />
     </state>
-    <state x="283" y="-1174" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1621137992801" />
-    <state x="684" y="251" width="672" height="635" key="search.everywhere.popup/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1622400867059" />
+    <state x="283" y="-1174" width="672" height="678" key="search.everywhere.popup/0.30.1920.1050/-447.-1410.2048.1122@-447.-1410.2048.1122" timestamp="1623411272870" />
+    <state x="684" y="251" width="672" height="635" key="search.everywhere.popup/0.30.1920.1050/-447.-1410.2048.1122@0.30.1920.1050" timestamp="1623312886679" />
     <state x="684" y="251" width="672" height="635" key="search.everywhere.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1622006895165" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ParentHomeActivity.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/federation/masters/preuni/parentHome/ParentHomeActivity.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

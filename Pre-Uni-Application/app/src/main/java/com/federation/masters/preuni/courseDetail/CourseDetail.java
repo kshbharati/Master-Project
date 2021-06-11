@@ -14,9 +14,12 @@ import com.federation.masters.preuni.models.AssignmentList;
 import com.federation.masters.preuni.models.Course;
 import com.federation.masters.preuni.models.DataPutAndFetchInFile;
 import com.federation.masters.preuni.models.StaffUser;
+import com.federation.masters.preuni.models.Student;
 import com.federation.masters.preuni.models.StudentList;
 import com.federation.masters.preuni.models.TeachingClass;
 import com.federation.masters.preuni.staffHome.ClassAdapter;
+import com.federation.masters.preuni.staffHome.StaffHomeActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
@@ -56,17 +59,19 @@ public class CourseDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        currentUser= DataPutAndFetchInFile.getInstance().getCurrentStaffUser();
+        currentUser= StaffHomeActivity.currentUser;
+
         String email= getIntent().getStringExtra(ClassAdapter.EXTRA_MESSAGE);
         teachingClass =(TeachingClass) new Gson().fromJson(email, TeachingClass.class);
+
         studentInClass=DataPutAndFetchInFile.getInstance().getStudentInClass(teachingClass.getId());
         course=DataPutAndFetchInFile.getInstance().getCourseForClass(teachingClass);
-
+        studentInClass=new StudentList();
 
         binding = ClassDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        generateAssignmentListForCourse(course);
+        getStudentListInClass(teachingClass.getId());
     }
 
     @Override
@@ -77,9 +82,8 @@ public class CourseDetail extends AppCompatActivity {
         overridePendingTransition(0, 0);
     }
 
-    private void handleRestOfCreateSystem() {
+    private void handleUIUpdateWithData() {
 
-        course.setAssignmentList(getAssignmentsForCourse(course).getAssignmentList());
         TextView className=binding.courseTitle;
         TextView courseDesc=binding.courseDescription;
 
@@ -102,30 +106,8 @@ public class CourseDetail extends AppCompatActivity {
         }
     }
 
-    public AssignmentList getAssignmentsForCourse(Course course)
-    {
-        File assignmentFile=new File(GlobalApplication.getAppContext().getFilesDir().toString()+
-                "/assignmentForCourse"+course.getId()+".json");
 
-        //generateStudentsInClassFile(classId);
-
-        Gson gson=new Gson();
-        try {
-            Reader reader;
-            reader= Files.newBufferedReader(Paths.get(assignmentFile.toString()));
-
-            AssignmentList assignmentList=gson.fromJson(reader, AssignmentList.class);
-            reader.close();
-
-            return assignmentList;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public void generateAssignmentListForCourse(Course course) {
+    public void getAssignmentListForCourse(Course course) {
         File assignmentFile=new File(GlobalApplication.getAppContext().getFilesDir().toString()+
                 "/assignmentForCourse"+course.getId()+".json");
 
@@ -143,17 +125,9 @@ public class CourseDetail extends AppCompatActivity {
 
                         ArrayList<Assignment> cse=processAssignmentData(response);
                         assignmentList.setAssignmentList(cse);
+                        course.setAssignmentList(cse);
 
-                        Writer write= null;
-                        try {
-                            write = new FileWriter(assignmentFile);
-                            courseJson.toJson(assignmentList,write);
-                            write.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                        handleRestOfCreateSystem();
+                        handleUIUpdateWithData();
                     }
                 },
                 new Response.ErrorListener() {
@@ -184,4 +158,55 @@ public class CourseDetail extends AppCompatActivity {
         return childList;
     }
 
+    public void getStudentListInClass(int classId)
+    {
+        File studentFile=new File(GlobalApplication.getAppContext().getFilesDir().toString()+
+                GlobalApplication.getAppContext().getString(R.string.studentInCourseFile));
+        Log.d("Student List",studentFile.toString());
+
+        Gson courseJson=new Gson();
+
+        String url=GlobalApplication.getAppContext().getString(R.string.api_host)+
+                "/get_students_in_class/"+classId;
+
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d("COURSES",response.toString());
+
+                        ArrayList<Student> stu=processStudentListInClassData(response);
+                        studentInClass.setStudentInClassList(stu);
+
+                        getAssignmentListForCourse(course);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                    }
+                }
+        );
+        singleton.getInstance(GlobalApplication.getAppContext()).addToRequestQueue(jsonArrayRequest);
+    }
+
+    private ArrayList<Student>  processStudentListInClassData(JSONArray array)
+    {
+        Gson gson=new Gson();
+        gson.toJson(array.toString());
+        ArrayList<Student> childList=new ArrayList<Student>();
+
+        for(int i=0;i<array.length();i++)
+        {
+            try {
+                childList.add(gson.fromJson(array.getJSONObject(i).toString(),Student.class));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return childList;
+    }
 }

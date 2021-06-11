@@ -129,3 +129,13 @@ class Grading(Base):
     feedback=Column(Text)
     gradedDate=Column(DateTime,default=datetime.datetime.utcnow())
 
+class Message(Base):
+    __tablename__="messages"
+    id=Column(Integer,primary_key=True,index=True)
+    receiverEmail=Column(Text)
+    senderEmail=Column(Text)
+    messageSubject=Column(Text)
+    messageBody=Column(Text)
+    messageReadStatus=Column(Text,default="UNREAD")
+    messageSentTime=Column(DateTime,default=datetime.datetime.utcnow())
+

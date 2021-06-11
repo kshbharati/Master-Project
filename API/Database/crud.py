@@ -1,9 +1,12 @@
+from typing import List
+
 from sqlalchemy.orm import Session
 
 from . import models, schemas
 import hashlib
 
-
+successMsg={"RESULT":"SUCCESS"}
+errorMsg={"RESULT":"FAILED"}
 #####################
 ####Hash Function####
 #####################
@@ -92,6 +95,61 @@ def get_grade_for_submission(db: Session, submissionId: int):
     return model
 
 
+def get_messages_for_user(db: Session, userEmail: str):
+    model = db.query(models.Message).filter((models.Message.senderEmail == userEmail) |
+                                            (models.Message.receiverEmail == userEmail)).all();
+    responseList = [errorMsg]
+    if not model:
+        return responseList
+    return model
+
+
+"""Update Functions"""
+
+
+def update_message_as_read(db: Session, messageId: int):
+    model = db.query(models.Message).filter(models.Message.id == messageId).first();
+    model.messageReadStatus = "READ"
+    failed = False
+    msg = successMsg
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = errorMsg
+        return msg
+
+    db.refresh(model)
+    return msg
+
+
+"""Delete Submission"""
+
+
+def delete_message(db: Session, messageId: int):
+    model = db.query(models.Message).filter(models.Message.id == messageId).delete()
+
+    failed = False
+    msg = successMsg
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = errorMsg
+        return msg
+    return msg
+
+
 """Insert Functions"""
 
 
@@ -100,7 +158,7 @@ def add_submission(db: Session, submission: schemas.SubmissionCreate):
     db.add(db_item)
 
     failed = False
-    msg = {"Result": "Success"}
+    msg = successMsg
     try:
         db.commit()
     except Exception as e:
@@ -110,18 +168,19 @@ def add_submission(db: Session, submission: schemas.SubmissionCreate):
         failed = True
 
     if failed:
-        msg = {"Result": "Failed"}
+        msg = errorMsg
         return msg
 
     db.refresh(db_item)
     return msg
+
 
 def add_grading(db: Session, grading: schemas.GradingCreate):
     db_item = models.Grading(**grading.dict())
     db.add(db_item)
 
     failed = False
-    msg = {"Result": "Success"}
+    msg = successMsg
     try:
         db.commit()
     except Exception as e:
@@ -131,10 +190,32 @@ def add_grading(db: Session, grading: schemas.GradingCreate):
         failed = True
 
     if failed:
-        msg = {"Result": "Failed"}
+        msg = errorMsg
         return msg
 
     db.refresh(db_item)
+    return msg
+
+
+def add_message(db: Session, message: schemas.MessageCreate):
+    db_message = models.Message(**message.dict())
+    db.add(db_message)
+
+    failed = False
+    msg = successMsg
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = errorMsg
+        return msg
+
+    db.refresh(db_message)
     return msg
 
 

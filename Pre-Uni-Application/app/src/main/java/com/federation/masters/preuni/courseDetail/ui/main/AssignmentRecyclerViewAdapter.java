@@ -38,7 +38,7 @@ public class AssignmentRecyclerViewAdapter extends RecyclerView.Adapter<Assignme
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mAssNum.setText("Assignment "+(position));
+        holder.mAssNum.setText("Assignment "+(position+1));
         holder.mAssTitle.setText(mValues.get(position).getAssignmentTitle());
         holder.mAssDesc.setText("Submission Date: "+mValues.get(position).getAssignmentSubmissionDate());
 

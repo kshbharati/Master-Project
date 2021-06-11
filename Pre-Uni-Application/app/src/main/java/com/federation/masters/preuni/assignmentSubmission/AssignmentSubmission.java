@@ -13,6 +13,7 @@ import com.federation.masters.preuni.api.singleton;
 import com.federation.masters.preuni.courseDetail.CourseDetail;
 import com.federation.masters.preuni.models.Assignment;
 import com.federation.masters.preuni.models.Submission;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import android.content.Intent;
@@ -25,6 +26,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
@@ -33,16 +35,21 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
-public class AssignmentSubmission extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class AssignmentSubmission extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageButton addSubmissionButton;
     Spinner spinner;
     public static ArrayList<Submission> submissionList;
     public static Assignment assignment;
     Gson gson=new Gson();
+    ProgressBar submissionProgressBar;
+    RecyclerView assignmentListRecycler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.assignment_submission);
+
+        submissionProgressBar=findViewById(R.id.submissionProgressBar);
 
         Intent intent=getIntent();
 
@@ -72,8 +79,19 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
         });
 
         spinner=(Spinner) findViewById(R.id.spinnerAssignmentList);
-        spinner.setAdapter(new AssignmentListSpinnerAdapter(this, R.layout.assignment_submission_spinner_item,CourseDetail.course.getAssignmentList()));
-        getSubmissionList(spinner.getAdapter().getItem(spinner.getSelectedItemPosition()));
+        spinner.setOnItemSelectedListener(this);
+
+        AssignmentListSpinnerAdapter spinnerAdapter=new AssignmentListSpinnerAdapter(this, R.layout.assignment_submission_spinner_item,CourseDetail.course.getAssignmentList());
+        spinner.setAdapter(spinnerAdapter);
+
+        if(assignment!=null)
+        {
+            spinner.setSelection(spinnerAdapter.getPositionOfItemIdForId(assignment.getId()));
+        }
+
+        assignmentListRecycler=findViewById(R.id.submissionListView);
+        RecyclerView.LayoutManager reMng=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        assignmentListRecycler.setLayoutManager(reMng);
     }
 
     @Override
@@ -113,12 +131,11 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
 
         if(submissionList.isEmpty() || submissionList ==null)
         {
+            submissionProgressBar.setVisibility(View.GONE);
             return;
         }
-        RecyclerView assignmentListRecycler=findViewById(R.id.submissionListView);
-        RecyclerView.LayoutManager reMng=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        assignmentListRecycler.setLayoutManager(reMng);
         assignmentListRecycler.setAdapter(new SubmissionRecyclerViewAdapter(submissionList));
+        submissionProgressBar.setVisibility(View.GONE);
     }
 
     private void processSubmissionResponse(JSONArray response) {
@@ -140,7 +157,11 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        submissionProgressBar.setVisibility(View.VISIBLE);
+        Assignment ass= (Assignment) adapterView.getAdapter().getItem(i);
+        Snackbar.make(view,ass.getAssignmentTitle(),Snackbar.LENGTH_SHORT).show();
 
+        getSubmissionList(spinner.getAdapter().getItem(spinner.getSelectedItemPosition()));
     }
 
     @Override

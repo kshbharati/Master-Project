@@ -1,13 +1,14 @@
 from typing import List
+from urllib.request import Request
 
-from fastapi import Depends, FastAPI, HTTPException
+import sqltap
+from fastapi import Depends, FastAPI, HTTPException, UploadFile, File
 from pydantic import BaseModel
 from sqlalchemy import Sequence
 from sqlalchemy.orm import Session
 
 from Database import crud, models, schemas
 from Database.database import SessionLocal, engine
-from Database.schemas import User, userReturn
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
@@ -176,6 +177,43 @@ def add_assignment(assignment: schemas.AssignmentCreate, db: Session = Depends(g
 def verify_user(username: str, password: str, db: Session = Depends(get_db)):
     result = crud.verify_user(db, username, password)
     if result is None:
-        raise HTTPException(status_code=404, detail="User Not Found")
+        raise HTTPException(status_code=404, detaipl="User Not Found")
 
     return result
+
+
+@app.post("/uploadfile/")
+async def create_upload_file(file: UploadFile = File(...)):
+    return {"filename": file.filename}
+
+
+"""MESSAGE CRUD STATEMENTS"""
+
+
+@app.post("/sendmail")
+def add_message(message: schemas.MessageCreate, db: Session = Depends(get_db)):
+    return crud.add_message(db, message=message)
+
+
+@app.get("/get_mail/{userEmail}", response_model=List)
+def get_message(userEmail: str, db: Session = Depends(get_db)):
+    return crud.get_messages_for_user(db, userEmail=userEmail)
+
+
+@app.post("/updateEmailAsRead/{messageId}")
+def update_message_as_read(messageId: int, db: Session = Depends(get_db)):
+    return crud.update_message_as_read(db, messageId=messageId)
+
+
+@app.delete("/deleteMail/{messageId}")
+def delete_message(messageId: int, db: Session = Depends(get_db)):
+    return crud.delete_message(db, messageId=messageId)
+
+
+@app.middleware("http")
+async def add_sql_tap(request: Request, call_next):
+    profiler = sqltap.start()
+    response = await call_next(request)
+    statistics = profiler.collect()
+    sqltap.report(statistics, "report.txt", report_format="text")
+    return response

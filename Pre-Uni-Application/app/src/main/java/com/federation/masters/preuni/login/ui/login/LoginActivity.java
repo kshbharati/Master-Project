@@ -138,9 +138,9 @@ public class LoginActivity extends AppCompatActivity {
                                                //String us = "{\"email\":\"teach@iibit.com\",\"category\":1,\"id\":1,\"userCreatedDate\":\"2021-05-12T05:14:38\"}";
                                                JSONObject objec=new JSONObject();
                                                try {
-                                                   objec.put("email","teach@iibit.com");
-                                                   objec.put("category",1);
-                                                   objec.put("id",1);
+                                                   objec.put("email","parent@iibit.com");
+                                                   objec.put("category",3);
+                                                   objec.put("id",2);
                                                } catch (JSONException e) {
                                                    e.printStackTrace();
                                                }

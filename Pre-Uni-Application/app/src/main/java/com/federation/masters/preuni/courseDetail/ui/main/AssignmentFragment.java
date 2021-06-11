@@ -72,7 +72,6 @@ public class AssignmentFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mAdaper.notifyDataSetChanged();
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

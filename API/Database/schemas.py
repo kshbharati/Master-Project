@@ -194,11 +194,18 @@ class Grading(GradingBase):
         orm_mode = True
 
 
-class userReturn(BaseModel):
-    result: str
-    data: User
+class MessageBase(BaseModel):
+    receiverEmail: str
+    senderEmail: str
+    messageSubject: str
+    messageBody: str
 
 
-class result(BaseModel):
-    result: str
-    message: str
+class MessageCreate(MessageBase):
+    pass
+
+
+class Message(MessageBase):
+    id: int
+    messageReadStatus: str
+    messageSentTime: datetime.date

@@ -169,14 +169,6 @@ public class AssignmentAddActivity extends AppCompatActivity {
 
         };
 
-        Log.d("HELLO",request.getBodyContentType().toString());
-
-        try {
-            Log.d("HELLO",request.getHeaders().toString());
-        } catch (AuthFailureError authFailureError) {
-            authFailureError.printStackTrace();
-        }
-
         singleton.getInstance(this).addToRequestQueue(request);
     }
     private boolean areFormFieldEmpty()

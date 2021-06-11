@@ -13,6 +13,7 @@ import com.federation.masters.preuni.R;
 import com.federation.masters.preuni.api.singleton;
 import com.federation.masters.preuni.login.ui.login.LoginActivity;
 import com.federation.masters.preuni.staffHome.ClassAdapter;
+import com.federation.masters.preuni.staffHome.StaffHomeActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
@@ -225,7 +226,7 @@ public class DataPutAndFetchInFile {
         Log.d("CLASS",teachingClass.getClassTitle());
         Course cse=new Course();
 
-        CourseList courses=getCourseList();
+        CourseList courses= StaffHomeActivity.allCourseList;
 
         if(courses == null)
         {

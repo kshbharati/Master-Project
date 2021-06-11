@@ -23,6 +23,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentL
     @Override
     public StudentListViewHolder onCreateViewHolder(ViewGroup parent,
                                                     int viewType) {
+        if(dataset.isEmpty())
+        {
+            TextView txt=new TextView(parent.getContext());
+            txt.setText("No Data Available");
+            return new StudentListViewHolder(txt);
+        }
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.parent_home_student_list, parent, false);
 

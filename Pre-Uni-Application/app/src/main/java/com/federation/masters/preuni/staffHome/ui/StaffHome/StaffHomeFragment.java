@@ -27,6 +27,7 @@ import com.federation.masters.preuni.models.TeachingClass;
 import com.federation.masters.preuni.models.User;
 import com.federation.masters.preuni.staffHome.ClassAdapter;
 import com.federation.masters.preuni.parentHome.ui.home.HomeViewModel;
+import com.federation.masters.preuni.staffHome.StaffHomeActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -52,9 +53,18 @@ public class StaffHomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        StaffUser usr=DataPutAndFetchInFile.getInstance().getCurrentStaffUser();
-        recyclerView.setAdapter(new ClassAdapter(usr.getAssignedClasses()));
+        StaffUser usr= StaffHomeActivity.currentUser;
+        if(usr!=null)
+        {
+            if(usr.getAssignedClasses().isEmpty())
+            {
 
+            }else
+            {
+                recyclerView.setAdapter(new ClassAdapter(usr.getAssignedClasses()));
+            }
+
+        }
         return root;
     }
 

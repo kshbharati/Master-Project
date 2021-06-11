@@ -9,8 +9,13 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/Attendance"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_staff_attendance"
+            android:icon="@drawable/ic_baseline_notes_24"
             android:title="@string/staff_nav_title_attendance" />
+        <item
+            android:id="@+id/nav_staff_messages"
+            android:icon="@drawable/ic_baseline_message_24"
+            android:title="Messages" />
     </group>
+
 </menu>

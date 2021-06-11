@@ -1,6 +1,7 @@
 package com.federation.masters.preuni.models;
 
 import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -25,6 +26,12 @@ import java.util.ArrayList;
 
 public class CourseList {
     ArrayList<Course> courseList;
+
+    public CourseList(ArrayList<Course> cseList)
+    {
+        courseList=cseList;
+    }
+    public CourseList(){}
 
     public ArrayList<Course> getCourseList() {
         return courseList;

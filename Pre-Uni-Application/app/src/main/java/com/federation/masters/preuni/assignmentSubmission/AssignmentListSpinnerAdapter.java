@@ -18,11 +18,6 @@ import androidx.annotation.NonNull;
 
 import com.federation.masters.preuni.GlobalApplication;
 import com.federation.masters.preuni.courseDetail.ui.main.AssignmentRecyclerViewAdapter;
-import com.federation.masters.preuni.databinding.AssignmentFragmentItemBinding;
-import com.federation.masters.preuni.databinding.AssignmentSubmissionBinding;
-import com.federation.masters.preuni.databinding.AssignmentSubmissionRecyclerItemBinding;
-import com.federation.masters.preuni.databinding.AssignmentSubmissionSpinnerDropdownBinding;
-import com.federation.masters.preuni.databinding.AssignmentSubmissionSpinnerItemBinding;
 import com.federation.masters.preuni.models.Assignment;
 import com.federation.masters.preuni.models.AssignmentList;
 import com.federation.masters.preuni.*;
@@ -56,6 +51,20 @@ public class AssignmentListSpinnerAdapter extends ArrayAdapter<Assignment> {
     @Override
     public void registerDataSetObserver(DataSetObserver dataSetObserver) {
 
+    }
+
+    public int getPositionOfItemIdForId(int id)
+    {
+        int i=0;
+        for (Assignment ass: mValues)
+        {
+            if(ass.getId()==id)
+            {
+                return i;
+            }
+            i++;
+        }
+        return i;
     }
 
     @Override

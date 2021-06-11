@@ -11,7 +11,8 @@ public class Submission {
 
     public enum submissionMethod{
         HANDIN,
-        ONLINE_SUBMISSION
+        ONLINE,
+        EXAM
     }
 
     public int getId() {

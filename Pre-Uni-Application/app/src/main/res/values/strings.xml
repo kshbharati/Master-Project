@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <string name="app_name">Pre-UNI Mobile Application</string>
 
@@ -34,4 +35,56 @@
     <string name="assignmentAddButtonContentDescription">Add An Assignment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="home_page_string">
+        <b>Our Method:</b>\n
+        -<i>Others supervise, we teach</i>\n
+        -<i>Support for parents</i>\n
+        -<i>Regular assessments</i>\n
+        -<i>Extra support for your child if they need it</i>\n
+        -<i>Ability-based learning</i><br/>
+        -<i>Process-driven so your child achieves their best</i>\n
+        \n\n\n
+        At Pre Uni College, your child is in an environment for peak performance,
+        and is certain to thrive.
+    </string>
+
+    <string name="course_1_text">
+        <b>EWMG Head Start Program</b>\n
+        Our EWMG Head start program is carefully designed for
+        students studying from year one through to year
+        six focusing on skills including English, writing,
+        Mathematics and General ability
+    </string>
+
+    <string name="course_2_text">
+        <b>Selective School Trial Test</b>\n
+        Our Selective School mock Tests give your
+        child the chance to perfect exam technique,
+        build confidence and overcome exam day nerves before the big day!
+    </string>
+
+    <string name="course_3_text">
+        <b>OC Trial Test</b> \n
+        Our comprehensive OC Trial Test Course give children
+        the opportunity to become confident
+        in Maths, English and General ability.
+        In addition, we ensure that they are developing
+        the underlying skills needed to tackle the exam with confidence.
+    </string>
+
+    <string name="course_4_text">
+        <b>School Readiness</b>\n
+        Our School Readiness is designed to effectively prepare children to enter Kindergarten
+        with confidence. Positive attitudes towards
+        learning about language ensure that students
+        are more likely to experience success in school and community settings
+    </string>
+
+    <string name="course_5_text">
+        <b>NAPLAN Preparation</b>\n
+        If your child is about to take the NAPLAN test,our preparation
+        course just may give them the edge they need.
+        We give your child the best opportunity to ACE the exam
+    </string>
 </resources>
