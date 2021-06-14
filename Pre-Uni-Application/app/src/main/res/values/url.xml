@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="api_host">http://10.0.2.2:8000</string>
-    <string name="api_key">121saq1923hn9nj9h</string>
 
     <string name="userFile">/userfile.json</string>
     <string name="courseListFile">/courseList.json</string>

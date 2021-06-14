@@ -29,6 +29,7 @@ import com.federation.masters.preuni.models.Course;
 import com.federation.masters.preuni.models.DataPutAndFetchInFile;
 import com.federation.masters.preuni.models.TeachingClass;
 import com.federation.masters.preuni.models.User;
+import com.federation.masters.preuni.staffHome.StaffHomeActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
@@ -64,7 +65,7 @@ public class AssignmentAddActivity extends AppCompatActivity {
 
         teachingClass= CourseDetail.teachingClass;
         currentUser=CourseDetail.currentUser;
-        course= DataPutAndFetchInFile.getInstance().getCourseForClass(teachingClass);
+        course= DataPutAndFetchInFile.getInstance().getCourseForClass(StaffHomeActivity.allCourseList,teachingClass);
 
         assignmentTitle=binding.assignmentAddTitle;
         assignmentDescription=binding.assignmentAddDescription;
@@ -134,7 +135,6 @@ public class AssignmentAddActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            Log.d("MESSAGE",response.toString());
                             if(response.get("Result").toString().equals("Success"))
                             {
 
@@ -173,7 +173,6 @@ public class AssignmentAddActivity extends AppCompatActivity {
     }
     private boolean areFormFieldEmpty()
     {
-        Log.d("Check","Form field are empty or not");
         return assignmentTitle.getText().toString().trim().isEmpty()||
                 assignmentDescription.getText().toString().trim().isEmpty() ||
                 assignmentSubmissionDate.getText().toString().trim().isEmpty();

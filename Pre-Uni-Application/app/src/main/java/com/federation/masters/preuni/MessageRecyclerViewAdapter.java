@@ -41,6 +41,7 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
     private final List<Message> mValues;
     ViewGroup container;
 
+
     RecyclerView mRecyclerView;
     public MessageRecyclerViewAdapter(List<Message> items) {
         mValues = items;
@@ -66,18 +67,22 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
         holder.senderName.setText(mValues.get(position).getSenderEmail());
         holder.messageSubject.setText(mValues.get(position).getMessageSubject());
 
+        if(!holder.mItem.isMessageReadStatus())
+        {
+            holder.itemView.setBackgroundColor(GlobalApplication.getAppContext().getResources().getColor(R.color.teal_200,null));
+        }
         //if(holder.mItem.isMessageReadStatus(MessageFragment.currentUser));
         holder.messageReply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handlePopUpForDetailView(container.getContext(),position);
+                handlePopForReplyView(container.getContext(),position);
             }
         });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handlePopUpForDetailView(container.getContext(),position);
+                handlePopUpForDetailView(container.getContext(),position,holder.itemView);
 
             }
         });
@@ -104,9 +109,20 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
 
     }
 
-    private void handlePopUpForDetailView(Context context, int position)
+    private void handlePopUpForDetailView(Context context, int position,View recyclerItem)
     {
         Message item=mValues.get(position);
+
+        if(!item.isMessageReadStatus())
+        {
+            if(item.getReceiverEmail().equals(MessageFragment.currentUser.getEmail()))
+            {
+                updateReadStatus(context,position,recyclerItem);
+            }
+
+        }
+
+
         View view=LayoutInflater.from(context).inflate(R.layout.message_detail_layout,container,false);
         TextView messageEmail=view.findViewById(R.id.messageSenderEmail);
         TextView messgeSubject=view.findViewById(R.id.messageSenderSubject);
@@ -173,14 +189,13 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
 
     private void handlePopForReplyView(Context context,int position)
     {
-        updateReadStatus(context,position);
-        if(!(ParentHomeActivity.fab==null))
+        if(!(MessageFragment.emailSendFab==null))
         {
-            ParentHomeActivity.fab.performClick();
+            MessageFragment.emailSendFab.performClick();
         }
     }
 
-    private void updateReadStatus(Context context,int position)
+    private void updateReadStatus(Context context,int position,View recyclerItem)
     {
         Message item=mValues.get(position);
 
@@ -192,6 +207,10 @@ public class MessageRecyclerViewAdapter extends RecyclerView.Adapter<MessageRecy
                 try {
                     if (response.get("RESULT").equals("SUCCESS")) {
                         mValues.get(position).setMessageReadStatus("READ");
+
+                        recyclerItem.setBackgroundColor(
+                                GlobalApplication.getAppContext().getResources().getColor(R.color.white,null)
+                        );
                         notifyDataSetChanged();
                     }
                 } catch (JSONException e) {

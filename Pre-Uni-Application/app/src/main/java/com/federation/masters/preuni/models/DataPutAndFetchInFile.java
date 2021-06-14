@@ -105,7 +105,6 @@ public class DataPutAndFetchInFile {
             @Override
             public void onResponse(JSONArray response) {
                 currentUser.setAssignedClasses(processClassesData(response));;
-                Log.d("Object",new Gson().toJson(currentUser).toString());
                 try {
                     Writer write=new FileWriter(userFile);
                     userJson.toJson(currentUser,write);
@@ -159,7 +158,6 @@ public class DataPutAndFetchInFile {
                     @Override
                     public void onResponse(JSONArray response) {
                         try {
-                            //Log.d("COURSES",response.toString());
                             ArrayList<Course> cse=processCourseData(response);
                             CourseList cseList=new CourseList();
                             cseList.setCourseList(cse);
@@ -221,12 +219,112 @@ public class DataPutAndFetchInFile {
 
     }
 
-    public Course getCourseForClass(TeachingClass teachingClass)
+    public ArrayList<Assignment>  processAssignmentData(JSONArray array)
     {
-        Log.d("CLASS",teachingClass.getClassTitle());
+        Gson gson=new Gson();
+        gson.toJson(array.toString());
+        ArrayList<Assignment> childList=new ArrayList<Assignment>();
+
+        for(int i=0;i<array.length();i++)
+        {
+            try {
+                childList.add(gson.fromJson(array.getJSONObject(i).toString(),Assignment.class));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return childList;
+    }
+
+    public ArrayList<Student>  processStudentData(JSONArray array)
+    {
+        Gson gson=new Gson();
+        gson.toJson(array.toString());
+        ArrayList<Student> childList=new ArrayList<Student>();
+
+        for(int i=0;i<array.length();i++)
+        {
+            try {
+                childList.add(gson.fromJson(array.getJSONObject(i).toString(),Student.class));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return childList;
+    }
+
+    public ArrayList<TeachingClass>  processTeachingClassData(JSONArray array)
+    {
+        Gson gson=new Gson();
+        gson.toJson(array.toString());
+        ArrayList<TeachingClass> childList=new ArrayList<TeachingClass>();
+
+        for(int i=0;i<array.length();i++)
+        {
+            try {
+                childList.add(gson.fromJson(array.getJSONObject(i).toString(),TeachingClass.class));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return childList;
+    }
+
+    public ArrayList<Submission>  processSubmissionData(JSONArray array)
+    {
+        Gson gson=new Gson();
+        gson.toJson(array.toString());
+        ArrayList<Submission> childList=new ArrayList<Submission>();
+
+        for(int i=0;i<array.length();i++)
+        {
+            try {
+                childList.add(gson.fromJson(array.getJSONObject(i).toString(),Submission.class));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return childList;
+    }
+
+    public ArrayList<Grading>  processGradingData(JSONArray array)
+    {
+        Gson gson=new Gson();
+        gson.toJson(array.toString());
+        ArrayList<Grading> childList=new ArrayList<Grading>();
+
+        for(int i=0;i<array.length();i++)
+        {
+            try {
+                childList.add(gson.fromJson(array.getJSONObject(i).toString(),Grading.class));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return childList;
+    }
+
+    public ArrayList<Attendance>  processAttendanceData(JSONArray array)
+    {
+        Gson gson=new Gson();
+        gson.toJson(array.toString());
+        ArrayList<Attendance> childList=new ArrayList<Attendance>();
+
+        for(int i=0;i<array.length();i++)
+        {
+            try {
+                childList.add(gson.fromJson(array.getJSONObject(i).toString(),Attendance.class));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return childList;
+    }
+
+    public Course getCourseForClass(CourseList courses,TeachingClass teachingClass)
+    {
         Course cse=new Course();
 
-        CourseList courses= StaffHomeActivity.allCourseList;
 
         if(courses == null)
         {
@@ -237,7 +335,6 @@ public class DataPutAndFetchInFile {
             if(teachingClass.getCourseTaught()==css.getId())
             {
                 cse=css;
-                continue;
             }
         }
 
@@ -276,7 +373,6 @@ public class DataPutAndFetchInFile {
 
         File studentFile=new File(GlobalApplication.getAppContext().getFilesDir().toString()+
                 GlobalApplication.getAppContext().getString(R.string.studentInCourseFile));
-        Log.d("Student List",studentFile.toString());
 
         Gson courseJson=new Gson();
 
@@ -289,13 +385,10 @@ public class DataPutAndFetchInFile {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                            Log.d("COURSES",response.toString());
 
                             ArrayList<Student> stu=processStudentListInClassData(response);
 
                             stuList.setStudentInClassList(stu);
-
-                            Log.d("Student List",courseJson.toJson(stuList).toString());
 
                         Writer write= null;
                         try {
@@ -334,7 +427,6 @@ public class DataPutAndFetchInFile {
             }
         }
 
-        Log.d("LOGGER",childList.toString());
         return childList;
     }
 

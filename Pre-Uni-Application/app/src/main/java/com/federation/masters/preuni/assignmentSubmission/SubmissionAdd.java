@@ -4,12 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.federation.masters.preuni.*;
+import com.federation.masters.preuni.api.singleton;
 import com.federation.masters.preuni.courseDetail.CourseDetail;
 import com.federation.masters.preuni.databinding.SubmissionAddFormBinding;
+import com.federation.masters.preuni.models.Assignment;
+import com.federation.masters.preuni.models.Grading;
+import com.federation.masters.preuni.models.Student;
+import com.federation.masters.preuni.models.Submission;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 
 import android.Manifest;
 import android.content.Intent;
@@ -35,9 +45,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
 
 import Utility.DecimalDigitsInputFilter;
 
@@ -120,7 +134,7 @@ public class SubmissionAdd extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (parent.getId())
+        /*switch (parent.getId())
         {
             case R.id.spinnerStudentName:
                 Snackbar.make(this,view,"Hello Student", BaseTransientBottomBar.LENGTH_SHORT).show();
@@ -131,7 +145,7 @@ public class SubmissionAdd extends AppCompatActivity implements AdapterView.OnIt
             case R.id.spinnerSubmissionType:
                 Snackbar.make(this,view,"Hello Type", BaseTransientBottomBar.LENGTH_SHORT).show();
                 break;
-        }
+        }*/
 
     }
 
@@ -145,12 +159,12 @@ public class SubmissionAdd extends AppCompatActivity implements AdapterView.OnIt
         if(v.getId() == binding.submissionFormSubmitButton.getId())
         {
             progressBar.setVisibility(View.VISIBLE);
-            if(areFormFieldInValid())
+            if(!areFormFieldInValid())
             {
                 progressBar.setVisibility(View.GONE);
-                return;
+                processFormSubmission();
             }
-            processFormSubmission();
+
         }
 
         if(v.getId()==submissionFilePicker.getId())
@@ -206,9 +220,6 @@ public class SubmissionAdd extends AppCompatActivity implements AdapterView.OnIt
                 Toast.makeText(this,filePath.toString(),Toast.LENGTH_SHORT).show();
                 if(fileSplit.length>1)
                 {
-                    for (String s:fileSplit) {
-                        Log.d("HELLO",s);
-                    }
                     String fileType=fileSplit[1];
                     if(fileType.equals("pdf") || fileType.equals("doc") || fileType.equals("docx"))
                     {
@@ -244,10 +255,8 @@ public class SubmissionAdd extends AppCompatActivity implements AdapterView.OnIt
             int nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
             int sizeIndex = cursor.getColumnIndex(OpenableColumns.SIZE);
             cursor.moveToFirst();
-            Log.d("HELLO",cursor.getString(nameIndex)+"   "+cursor.getString(sizeIndex));
             path=cursor.getString(nameIndex);
             /*cursor.moveToFirst();
-            Log.d("STRING",cursor.toString());
             String document_id = cursor.getString(0);
             document_id = document_id.substring(document_id.lastIndexOf(":") + 1);
             cursor.close();
@@ -275,8 +284,89 @@ public class SubmissionAdd extends AppCompatActivity implements AdapterView.OnIt
 
     private void processFormSubmission()
     {
+        Submission submission=new Submission();
+        Student selectedStudent= (Student) studentListSpinner.getAdapter()
+                .getItem(studentListSpinner.getSelectedItemPosition());
+        submission.setStudentId(selectedStudent.getId());
 
+        Assignment selectedAssignment=(Assignment) assignmentListSpinner.getAdapter()
+                .getItem(assignmentListSpinner.getSelectedItemPosition());
+        submission.setAssignmentId(selectedAssignment.getId());
+
+        submission.setSubmissionType(submissionTypeSpinner.getSelectedItemPosition());
+        submission.setSubmissionFile("NONE");
+        submission.setClassId(CourseDetail.teachingClass.getId());
+
+        JSONObject requestObject=submission.getRequestData();
+
+        String host=getApplicationContext().getResources().getString(R.string.api_host)
+                +"/add_submission/";
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST,
+                host,
+                requestObject,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        if(!response.has("RESULT"))
+                        {
+                            processGradeSubmission(response);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        singleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
+
+    private void processGradeSubmission(JSONObject response) {
+        Gson gson=new Gson();
+        Submission submission=gson.fromJson(response.toString(),Submission.class);
+        if(submission==null)
+        {
+            showSnackBarMessage(null,"Operation Failed. Try Again Later!!");
+            return;
+        }
+        Grading grading=new Grading();
+        grading.setSubmissionId(submission.getId());
+        grading.setMarkGiven(gradeText.getText().toString());
+        grading.setFeedback(gradeRemarks.getText().toString());
+
+        JSONObject object=grading.requestData();
+        String host=getApplicationContext().getResources().getString(R.string.api_host)
+                +"/add_grade/";
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST,
+                host,
+                object,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if(response.has("RESULT") && response.get("RESULT").equals("SUCCESS"))
+                            {
+                                showSnackBarMessage(null,"SUBMISSION ADDED SUCCESSFULLY");
+                                gradeText.setText("");
+                                gradeRemarks.setText("");
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        showSnackBarMessage(null,"Something Went Wrong. Try Again Later!!");
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        singleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
+
 
     /***********
      *

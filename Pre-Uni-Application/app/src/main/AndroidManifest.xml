@@ -20,9 +20,14 @@
         android:theme="@style/Theme.PreUniApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
-        <activity android:name=".assignmentSubmission.SubmissionAdd"
+        <activity
+            android:name=".parentHome.ui.studentDetail.ParentStudentDetailActivity"
+            android:label="@string/title_activity_parent_student_detail"
             android:theme="@style/Theme.PreUniApplication.NoActionBar"
-            />
+            android:parentActivityName=".parentHome.ParentHomeActivity"/>
+        <activity
+            android:name=".assignmentSubmission.SubmissionAdd"
+            android:theme="@style/Theme.PreUniApplication.NoActionBar" />
         <activity
             android:name=".assignmentSubmission.AssignmentSubmission"
             android:theme="@style/Theme.PreUniApplication.NoActionBar" />

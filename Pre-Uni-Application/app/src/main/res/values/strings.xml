@@ -3,38 +3,28 @@
     <string name="app_name">Pre-UNI Mobile Application</string>
 
 
-    <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_parent_home">ParentHomeActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="title_activity_main">MainActivity</string>
     <string name="grades">Grades</string>
-    <string name="title_activity_staff_home">ParentHomeActivity</string>
     <string name="staff_nav_title_attendance">Attendance</string>
     <string name="card_detail_button_text">View Detail</string>
     <string name="title_activity_course_detail">CourseDetail</string>
 
     <string name="tab_text_1">Students</string>
     <string name="tab_text_2">Assignments</string>
+    <string name="tab_text_3">Progress</string>
     <string name="assignmentAddButtonContentDescription">Add An Assignment</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="home_page_string">
         <b>Our Method:</b>\n
@@ -42,7 +32,7 @@
         -<i>Support for parents</i>\n
         -<i>Regular assessments</i>\n
         -<i>Extra support for your child if they need it</i>\n
-        -<i>Ability-based learning</i><br/>
+        -<i>Ability-based learning</i><br />
         -<i>Process-driven so your child achieves their best</i>\n
         \n\n\n
         At Pre Uni College, your child is in an environment for peak performance,
@@ -87,4 +77,9 @@
         course just may give them the edge they need.
         We give your child the best opportunity to ACE the exam
     </string>
+    <string name="log_out">Log Out</string>
+    <string name="messages">Messages</string>
+    <string name="add_submission">Add Submission</string>
+    <string name="title_activity_parent_student_detail">ParentStudentDetailActivity</string>
+    <string name="student_detail">Student Detail</string>
 </resources>

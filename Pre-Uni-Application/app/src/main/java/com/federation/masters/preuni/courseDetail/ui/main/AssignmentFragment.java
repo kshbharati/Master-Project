@@ -76,9 +76,8 @@ public class AssignmentFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if(CourseDetail.course.getAssignmentList()!= null)
+        if(!CourseDetail.course.getAssignmentList().isEmpty())
         {
-            Log.d("RESPONSE",new Gson().toJson(CourseDetail.course.getAssignmentList()).toString());
             assignments=CourseDetail.course.getAssignmentList();
         }
 

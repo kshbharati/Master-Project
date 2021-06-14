@@ -333,7 +333,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/delete/baseline_delete_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/check/baseline_check_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -344,7 +344,8 @@
                         <option name="values">
                           <map>
                             <entry key="autoMirrored" value="true" />
-                            <entry key="outputName" value="ic_baseline_delete_24" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_baseline_check__white_24" />
                             <entry key="sourceFile" value="E:\Master-Project\Pre-Uni-Application" />
                           </map>
                         </option>

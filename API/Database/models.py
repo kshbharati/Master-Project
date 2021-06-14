@@ -125,7 +125,7 @@ class Grading(Base):
     __tablename__="submission_grades"
     id=Column(Integer,primary_key=True,index=True)
     submissionId=Column(Integer,ForeignKey("submissons.id"))
-    markGiven=Column(Numeric)
+    markGiven=Column(Text)
     feedback=Column(Text)
     gradedDate=Column(DateTime,default=datetime.datetime.utcnow())
 
@@ -139,3 +139,10 @@ class Message(Base):
     messageReadStatus=Column(Text,default="UNREAD")
     messageSentTime=Column(DateTime,default=datetime.datetime.utcnow())
 
+class Attendance(Base):
+    __tablename__="attendance"
+    id=Column(Integer,primary_key=True,index=True)
+    classId=Column(Integer,ForeignKey("teachingClass.id"))
+    studentId=Column(Integer,ForeignKey("students.id"))
+    attendance=Column(Integer,default=0)
+    date=Column(DateTime,default=datetime.datetime.utcnow())

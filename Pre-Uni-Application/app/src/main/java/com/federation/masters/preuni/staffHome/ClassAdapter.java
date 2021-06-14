@@ -53,7 +53,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.CourseListVi
         textName.setText(dataset.get(listPosition).getClassTitle());
 
         Course courseForClass= DataPutAndFetchInFile.getInstance().
-                getCourseForClass(dataset.get(listPosition));
+                getCourseForClass(StaffHomeActivity.allCourseList,dataset.get(listPosition));
 
         numOfStu.setText(courseForClass.getCourseTitle());
 

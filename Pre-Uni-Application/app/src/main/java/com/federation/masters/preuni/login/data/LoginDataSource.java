@@ -31,7 +31,6 @@ public class LoginDataSource {
     public Result<User> login(String email, String password) {
             verify_user(email,password);
 
-            Log.d("HELLO", "Response: ");
             try {
                 return new Result.Success<>(new User());
             } catch (Exception e) {
@@ -59,7 +58,6 @@ public class LoginDataSource {
 
                             @Override
                             public void onResponse(JSONArray response) {
-                                Log.d("HELLO",response.toString());
                                 handleResult(response);
                             }
                         }, new Response.ErrorListener() {

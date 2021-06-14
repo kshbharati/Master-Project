@@ -38,6 +38,7 @@ import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -54,7 +55,8 @@ public class CourseDetail extends AppCompatActivity {
     public static Course course;
     public static StaffUser currentUser;
     public static TeachingClass teachingClass;
-    public static StudentList studentInClass;
+    public static StudentList studentInClass=new StudentList();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,9 +66,13 @@ public class CourseDetail extends AppCompatActivity {
         String email= getIntent().getStringExtra(ClassAdapter.EXTRA_MESSAGE);
         teachingClass =(TeachingClass) new Gson().fromJson(email, TeachingClass.class);
 
-        studentInClass=DataPutAndFetchInFile.getInstance().getStudentInClass(teachingClass.getId());
-        course=DataPutAndFetchInFile.getInstance().getCourseForClass(teachingClass);
-        studentInClass=new StudentList();
+        for(Course ces:StaffHomeActivity.allCourseList.getCourseList())
+        {
+            if(ces.getId()==teachingClass.getCourseTaught())
+            {
+                course=ces;
+            }
+        }
 
         binding = ClassDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -162,7 +168,6 @@ public class CourseDetail extends AppCompatActivity {
     {
         File studentFile=new File(GlobalApplication.getAppContext().getFilesDir().toString()+
                 GlobalApplication.getAppContext().getString(R.string.studentInCourseFile));
-        Log.d("Student List",studentFile.toString());
 
         Gson courseJson=new Gson();
 
@@ -175,12 +180,18 @@ public class CourseDetail extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Log.d("COURSES",response.toString());
+                        try {
+                            JSONObject object=(JSONObject)response.get(0);
+                            if(!object.has("RESULT"))
+                            {
+                                ArrayList<Student> stu=processStudentListInClassData(response);
+                                studentInClass.setStudentInClassList(stu);
 
-                        ArrayList<Student> stu=processStudentListInClassData(response);
-                        studentInClass.setStudentInClassList(stu);
-
-                        getAssignmentListForCourse(course);
+                                getAssignmentListForCourse(course);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {

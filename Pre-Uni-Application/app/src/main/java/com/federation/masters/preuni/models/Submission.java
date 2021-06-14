@@ -1,18 +1,49 @@
 package com.federation.masters.preuni.models;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class Submission {
     private int id;
     private int studentId;
     private String submittedDate;
     private int classId;
     private int assignmentId;
-    private String submissionFileLink;
+    private String submissionFile="";
     private int submissionType;
 
     public enum submissionMethod{
         HANDIN,
         ONLINE,
         EXAM
+    }
+
+    ArrayList<Grading> gradings=new ArrayList<Grading>();
+
+    public ArrayList<Grading> getGradings() {
+        return gradings;
+    }
+
+    public void setGradings(ArrayList<Grading> gradings) {
+        this.gradings = gradings;
+    }
+
+    public JSONObject getRequestData()
+    {
+        JSONObject request=new JSONObject();
+        try {
+            request.put("studentId",getStudentId());
+            request.put("classId",getClassId());
+            request.put("assignmentId",getAssignmentId());
+            request.put("submissionFile",getSubmissionFile());
+            request.put("submissionType",getSubmissionType());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return request;
     }
 
     public int getId() {
@@ -47,12 +78,12 @@ public class Submission {
         this.classId = classId;
     }
 
-    public String getSubmissionFileLink() {
-        return submissionFileLink;
+    public String getSubmissionFile() {
+        return submissionFile;
     }
 
-    public void setSubmissionFileLink(String submissionFileLink) {
-        this.submissionFileLink = submissionFileLink;
+    public void setSubmissionFile(String submissionFile) {
+        this.submissionFile = submissionFile;
     }
 
     public int getAssignmentId() {

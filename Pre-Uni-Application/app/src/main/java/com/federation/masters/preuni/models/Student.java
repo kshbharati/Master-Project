@@ -9,7 +9,6 @@ public class Student {
     private String studentEnrolledDate;
     private int parent;
 
-
     public int getId() {
         return id;
     }

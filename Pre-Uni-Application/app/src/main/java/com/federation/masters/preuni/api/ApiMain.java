@@ -76,7 +76,6 @@ public class ApiMain {
             if(parameters.get("subUrl") instanceof String)
             {
                 requestUrl=hostUrl.concat((String)parameters.get("subUrl"));
-                Log.d("HELLO",requestUrl);
             }
         }else
         {
@@ -88,7 +87,6 @@ public class ApiMain {
             int rMethod=(int)parameters.get("requestMethod");
             requestMethod=rMethod;
         }
-        Log.d("HELLO",String.valueOf(requestMethod));
 
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest
                 (requestMethod,
@@ -98,7 +96,6 @@ public class ApiMain {
 
                             @Override
                             public void onResponse(JSONArray response) {
-                                Log.d("HELLO",response.toString());
                                 returnData=response;
                             }
                         }, new Response.ErrorListener() {

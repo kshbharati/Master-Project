@@ -11,6 +11,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.federation.masters.preuni.*;
 import com.federation.masters.preuni.api.singleton;
 import com.federation.masters.preuni.courseDetail.CourseDetail;
+import com.federation.masters.preuni.courseDetail.ui.main.AssignmentRecyclerViewAdapter;
 import com.federation.masters.preuni.models.Assignment;
 import com.federation.masters.preuni.models.Submission;
 import com.google.android.material.snackbar.Snackbar;
@@ -32,12 +33,13 @@ import android.widget.SpinnerAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class AssignmentSubmission extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ImageButton addSubmissionButton;
-    Spinner spinner;
+    Spinner assignmentListSpinner;
     public static ArrayList<Submission> submissionList;
     public static Assignment assignment;
     Gson gson=new Gson();
@@ -50,6 +52,7 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.assignment_submission);
 
         submissionProgressBar=findViewById(R.id.submissionProgressBar);
+        submissionProgressBar.setVisibility(View.GONE);
 
         Intent intent=getIntent();
 
@@ -58,7 +61,6 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
         {
             assignment=gson.fromJson(intentExtra,Assignment.class);
         }
-;       Log.d("ASSIGNMENT",gson.toJson(assignment).toString());
 
         addSubmissionButton=findViewById(R.id.submission_add_button);
 
@@ -78,15 +80,17 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
             }
         });
 
-        spinner=(Spinner) findViewById(R.id.spinnerAssignmentList);
-        spinner.setOnItemSelectedListener(this);
+        assignmentListSpinner=(Spinner) findViewById(R.id.spinnerAssignmentList);
+        assignmentListSpinner.setOnItemSelectedListener(this);
 
-        AssignmentListSpinnerAdapter spinnerAdapter=new AssignmentListSpinnerAdapter(this, R.layout.assignment_submission_spinner_item,CourseDetail.course.getAssignmentList());
-        spinner.setAdapter(spinnerAdapter);
+        AssignmentListSpinnerAdapter spinnerAdapter=new AssignmentListSpinnerAdapter(this,
+                R.layout.assignment_submission_spinner_item,
+                CourseDetail.course.getAssignmentList());
+        assignmentListSpinner.setAdapter(spinnerAdapter);
 
         if(assignment!=null)
         {
-            spinner.setSelection(spinnerAdapter.getPositionOfItemIdForId(assignment.getId()));
+            assignmentListSpinner.setSelection(spinnerAdapter.getPositionOfItemIdForId(assignment.getId()));
         }
 
         assignmentListRecycler=findViewById(R.id.submissionListView);
@@ -114,8 +118,16 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        processSubmissionResponse(response);
-                        handleRestUIUpdate();
+                        try {
+                            JSONObject object=(JSONObject)response.get(0);
+                            if(!object.has("RESULT"))
+                            {
+                                processSubmissionResponse(response);
+                                handleRestUIUpdate();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {
@@ -129,7 +141,7 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
 
     private void handleRestUIUpdate() {
 
-        if(submissionList.isEmpty() || submissionList ==null)
+        if(submissionList.isEmpty())
         {
             submissionProgressBar.setVisibility(View.GONE);
             return;
@@ -159,9 +171,10 @@ public class AssignmentSubmission extends AppCompatActivity implements AdapterVi
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         submissionProgressBar.setVisibility(View.VISIBLE);
         Assignment ass= (Assignment) adapterView.getAdapter().getItem(i);
-        Snackbar.make(view,ass.getAssignmentTitle(),Snackbar.LENGTH_SHORT).show();
-
-        getSubmissionList(spinner.getAdapter().getItem(spinner.getSelectedItemPosition()));
+        assignmentListRecycler.setAdapter(new SubmissionRecyclerViewAdapter(new ArrayList<Submission>()));
+        getSubmissionList(assignmentListSpinner.getAdapter()
+                .getItem(assignmentListSpinner.getSelectedItemPosition()));
+        submissionProgressBar.setVisibility(View.GONE);
     }
 
     @Override

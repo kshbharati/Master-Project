@@ -74,9 +74,9 @@ public class StudentListFragment extends Fragment {
             }*/
 
             StudentList stuList=CourseDetail.studentInClass;
-            Log.d("STUDENTS",new Gson().toJson(stuList).toString());
             ArrayList<Student> students=stuList.getStudentInClassList();
-            recyclerView.setAdapter(new StudentListRecyclerViewAdapter(students));
+            if(!students.isEmpty())
+                recyclerView.setAdapter(new StudentListRecyclerViewAdapter(students));
         }
         return view;
     }

@@ -163,7 +163,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                         @Override
                                         public void onResponse(JSONObject response) {
-                                            Log.d("onResponse", response.toString());
                                             updateUiWithUser(response);
                                         }
                                     }, new Response.ErrorListener() {
@@ -223,7 +222,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(JSONObject response) {
-        Log.d("WELCOME",response.toString());
         //String welcome = "Welcome " + model.getDisplayName();
         try {
             if(response.getInt("category") == 1)

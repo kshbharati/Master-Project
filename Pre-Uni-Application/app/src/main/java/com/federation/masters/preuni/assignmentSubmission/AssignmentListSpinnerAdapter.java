@@ -31,6 +31,7 @@ public class AssignmentListSpinnerAdapter extends ArrayAdapter<Assignment> {
     public AssignmentListSpinnerAdapter(@NonNull Context context, int resource, @NonNull List<Assignment> objects) {
         super(context, resource, objects);
         inflater=(LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+
         mValues=objects;
     }
 
@@ -116,6 +117,4 @@ public class AssignmentListSpinnerAdapter extends ArrayAdapter<Assignment> {
         return false;
     }
 
-    public class ViewHolder{
-    }
 }

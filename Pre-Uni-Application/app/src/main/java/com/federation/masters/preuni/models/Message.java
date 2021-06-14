@@ -9,7 +9,7 @@ public class Message {
     private String receiverEmail;
     private String messageSubject;
     private String messageBody;
-    private String messageReadStatus;
+    private String messageReadStatus="UNREAD";
     private String messageSentTime;
 
     public int getId() {

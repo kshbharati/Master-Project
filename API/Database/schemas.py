@@ -178,7 +178,7 @@ class Submission(SubmissionBase):
 # Grading Schemas
 class GradingBase(BaseModel):
     submissionId: int
-    markGiven: decimal.Decimal
+    markGiven: str
     feedback: str
 
 
@@ -209,3 +209,29 @@ class Message(MessageBase):
     id: int
     messageReadStatus: str
     messageSentTime: datetime.date
+
+    class Config:
+        orm_mode = True
+
+
+class AttendanceBase(BaseModel):
+    classId: int
+    studentId: int
+    attendance: int
+    date: datetime.date
+
+
+class AttendanceCreate(AttendanceBase):
+    pass
+
+
+class Attendance(AttendanceBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+
+class gradingReturn(BaseModel):
+    submission: list
+    grade: list

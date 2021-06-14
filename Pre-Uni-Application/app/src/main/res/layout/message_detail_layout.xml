@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        android:minHeight="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:padding="10dp">
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -18,8 +19,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageButton
+                android:layout_gravity="start|center"
                 android:id="@+id/messageDetailCloseButton"
                 android:layout_width="wrap_content"
+                android:minHeight="25dp"
+                android:minWidth="25dp"
                 android:layout_height="wrap_content"
                 android:src="?attr/homeAsUpIndicator"
                 android:background="#00FFFFFF"/>

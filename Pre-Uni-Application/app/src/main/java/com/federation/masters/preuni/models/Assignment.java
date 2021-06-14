@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,16 @@ public class Assignment {
     private String assignmentSubmissionDate;
     private int assignmentAddedBy;
     private int courseId;
+
+    ArrayList<Submission> submissions=new ArrayList<Submission>();
+
+    public ArrayList<Submission> getSubmissions() {
+        return submissions;
+    }
+
+    public void setSubmissions(ArrayList<Submission> submissions) {
+        this.submissions = submissions;
+    }
 
     public int getId() {
         return id;

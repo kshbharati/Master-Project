@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import List
 
 from sqlalchemy.orm import Session
@@ -5,8 +6,10 @@ from sqlalchemy.orm import Session
 from . import models, schemas
 import hashlib
 
-successMsg={"RESULT":"SUCCESS"}
-errorMsg={"RESULT":"FAILED"}
+successMsg = {"RESULT": "SUCCESS"}
+errorMsg = {"RESULT": "FAILED"}
+
+
 #####################
 ####Hash Function####
 #####################
@@ -71,12 +74,12 @@ def get_assigned_class_for_staff(db: Session, staffId: int):
 
 
 def get_students_in_class(db: Session, classId: int):
-    list = []
+    returnList = []
     model = db.query(models.AssignedClass).filter(models.AssignedClass.classId == classId).all()
     for result in model:
         stu = db.query(models.Student).filter(models.Student.id == result.student).first()
-        list.append(stu)
-    return list
+        returnList.append(stu)
+    return returnList
 
 
 def get_assignment_for_course(db: Session, courseId: int):
@@ -86,12 +89,20 @@ def get_assignment_for_course(db: Session, courseId: int):
 
 
 def get_submission_for_assignment(db: Session, assignmentId: int):
-    model = db.query(models.Submission).filter(models.Submission.assignmentId == assignmentId).all()
+    model = db.query(models.Submission) \
+        .filter(models.Submission.assignmentId == assignmentId) \
+        .all()
+    if not model:
+        return [errorMsg]
     return model
 
 
 def get_grade_for_submission(db: Session, submissionId: int):
-    model = db.query(models.Grading).filter(models.Grading.submissionId == submissionId).first()
+    model = db.query(models.Grading) \
+        .filter(models.Grading.submissionId == submissionId) \
+        .first()
+    if not model:
+        return [errorMsg]
     return model
 
 
@@ -104,6 +115,68 @@ def get_messages_for_user(db: Session, userEmail: str):
     return model
 
 
+def get_attendance(db: Session, classId: int, date: datetime.date):
+    model = db.query(models.Attendance).filter((models.Attendance.classId == classId) &
+                                               (date == models.Attendance.date)).all()
+    if not model:
+        return errorMsg
+    return model
+
+
+def get_attendance_for_student(db: Session, studentId: id):
+    model = db.query(models.Attendance).filter(models.Attendance.studentId == studentId).all()
+
+    if not model:
+        return [errorMsg]
+    return model
+
+
+def get_children_for_parent(db: Session, parentId: id):
+    model = db.query(models.Student).filter(models.Student.parent == parentId).all()
+    if not model:
+        return [errorMsg]
+    return model
+
+
+def get_classes_for_student(db: Session, studentId: id):
+    returnList = []
+    model = db.query(models.AssignedClass).filter(models.AssignedClass.student == studentId).all()
+    for mod in model:
+        classes = db.query(models.TeachingClass) \
+            .filter(models.TeachingClass.id == mod.classId).first()
+        if not classes:
+            continue
+
+        returnList.append(classes)
+    if not returnList:
+        returnList.append(errorMsg)
+    return returnList
+
+
+def get_submission_and_grading_for_student(db: Session, studentId: id):
+    returnList = []
+    gradeList = []
+    subItem = db.query(models.Submission) \
+        .filter(models.Submission.studentId == studentId).all()
+    if subItem:
+        returnList.append(subItem)
+        for sub in subItem:
+            gradeItem = db.query(models.Grading) \
+                .filter(models.Grading.submissionId == sub.id).first()
+            if gradeItem:
+                gradeList.append(gradeItem)
+    if not returnList:
+        return errorMsg
+    if gradeList:
+        returnList.append(gradeList)
+    returnDict = {"SUBMISSION": subItem, "GRADES": gradeList}
+    return returnDict
+
+def get_attendance_for_student(db:Session,studentId:id):
+    attenItem=db.query(models.Attendance).filter(models.Attendance.studentId==studentId).all()
+    if not attenItem:
+        return [errorMsg]
+    return attenItem
 """Update Functions"""
 
 
@@ -112,6 +185,53 @@ def update_message_as_read(db: Session, messageId: int):
     model.messageReadStatus = "READ"
     failed = False
     msg = successMsg
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = errorMsg
+        return msg
+
+    db.refresh(model)
+    return msg
+
+
+def update_grade(db: Session, gradeId: int, mark: str, remark: str):
+    model = db.query(models.Grading).filter(models.Grading.id == gradeId).first()
+    model.markGiven = mark
+    model.feeback = remark
+    model.gradedDate = datetime.utcnow()
+
+    msg = successMsg
+    failed = False;
+    try:
+        db.commit()
+    except Exception as e:
+        print(e)
+        db.rollback()
+        db.flush()
+        failed = True
+
+    if failed:
+        msg = errorMsg
+        return msg
+
+    db.refresh(model)
+    return msg
+
+
+def update_attendance(db: Session, attendance: schemas.Attendance):
+    model = db.query(models.Grading).filter(models.Attendance.id == attendance.id)
+    model.attendance = attendance.attendance
+    model.date = attendance.date
+
+    msg = successMsg
+    failed = False;
     try:
         db.commit()
     except Exception as e:
@@ -153,6 +273,42 @@ def delete_message(db: Session, messageId: int):
 """Insert Functions"""
 
 
+def add_attendance(db: Session, attendance: list):
+    failed = False
+    for attend in attendance:
+        atten = schemas.AttendanceCreate(**attend)
+
+        checkItem = db.query(models.Attendance).filter(
+            (models.Attendance.studentId == atten.studentId) &
+            (models.Attendance.date == atten.date) &
+            (models.Attendance.classId == atten.classId)).first()
+        if checkItem:
+            print("HELLO")
+            checkItem.attendance = atten.attendance
+            try:
+                db.commit()
+            except Exception as e:
+                print(e)
+                db.rollback()
+                db.flush()
+                failed = True
+            continue
+        db_item = models.Attendance(**atten.dict())
+        db.add(db_item)
+        try:
+            db.commit()
+        except Exception as e:
+            print(e)
+            db.rollback()
+            db.flush()
+            failed = True
+
+        db.refresh(db_item)
+    if failed:
+        return [errorMsg]
+    return [successMsg]
+
+
 def add_submission(db: Session, submission: schemas.SubmissionCreate):
     db_item = models.Submission(**submission.dict())
     db.add(db_item)
@@ -172,7 +328,7 @@ def add_submission(db: Session, submission: schemas.SubmissionCreate):
         return msg
 
     db.refresh(db_item)
-    return msg
+    return db_item
 
 
 def add_grading(db: Session, grading: schemas.GradingCreate):
@@ -194,7 +350,7 @@ def add_grading(db: Session, grading: schemas.GradingCreate):
         return msg
 
     db.refresh(db_item)
-    return msg
+    return successMsg
 
 
 def add_message(db: Session, message: schemas.MessageCreate):
@@ -284,7 +440,7 @@ def add_assignment_for_course(db: Session, assignment: schemas.AssignedClass):
     db.add(db_item)
 
     failed = False
-    msg = {"Result": "Success"}
+    msg = successMsg
     try:
         db.commit()
     except Exception as e:
@@ -294,7 +450,7 @@ def add_assignment_for_course(db: Session, assignment: schemas.AssignedClass):
         failed = True
 
     if failed:
-        msg = {"Result": "Failed"}
+        msg = errorMsg
         return msg
 
     db.refresh(db_item)

@@ -89,7 +89,6 @@ public class StaffHomeActivity extends AppCompatActivity {
     public void handleUIUpdateWithData()
     {
         setContentView(R.layout.activity_staff_home);
-        Log.d("String",userJson.toJson(currentUser).toString());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -196,7 +195,6 @@ public class StaffHomeActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 currentUser.setAssignedClasses(processClassesData(response));;
-                //Log.d("Object",new Gson().toJson(currentUser).toString());
                 handleUIUpdateWithData();
             }
         }, new Response.ErrorListener() {
